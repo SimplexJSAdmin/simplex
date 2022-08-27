@@ -1,0 +1,30 @@
+{%  extends 'base.html' %}
+{% block section %}
+<div class="row justify-content-center pt-5">
+
+    <form action="" method="get">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <label for="select_tipo_reporte" class="form-label">Seleccione el tipo de reporte</label>
+                    <select class="form-control" name="tipo_reporte" id="select_tipo_reporte">
+                        {%for opcion, opcion_render in opciones.items %}
+                            <option value="{{opcion}}">{{opcion_render}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 align-items-center">
+                        <button class="btn btn-primary" type="submit">
+                            Obtener reporte
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
