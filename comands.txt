@@ -1,0 +1,14 @@
+COMANDOS DOCKER
+    Levantar el contenedor con las imagenes definidas en el archivo docker-compose:
+        docker-compose up
+    Correr un contenedor con una imagen particular
+        docker-compose run image_name
+COMANDOS DJango
+    Crear una nueva app dentro del proyecto (usando un contenedor docker)
+        docker-compose run image_name python manage.py startapp app_name
+    Crear migracion de base de datos
+        docker-compose run image_name python manage.py makemigrations
+    Cargar migraciones a la base de datos
+        docker-compose run image_name python  manage.py migrations
+    crear  super usuario
+        docker-compose run image_name python manage.py createsuperuser

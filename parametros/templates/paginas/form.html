@@ -1,0 +1,16 @@
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+        {% for campo in formulario %}
+            <div class="col-md-4 form-group">
+                <label class="form-label">{{ campo.label }}</label>
+                <input class="form-control" type="{{ campo.field.widget.input_type }}" name="{{ campo.name }}" value="{{ campo.value | default:'' }}">
+            </div>
+        {% endfor %}
+        <div class="row justify-content-center pt-5">
+            <div class="col-md-5 mx-auto">
+                <button class="btn btn-primary mx-auto">Crear</button>
+            </div>
+        </div>
+    </div>
+</form>
