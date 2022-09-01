@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block section %}
+    {%for message in messages%}
+        <div class="row p-4 justify-content-center">
+            <div class="col-md-6">
+                <div class="alert alert-info">{{mesage}}</div>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="row justify-content-center align-items-center m-5">
+        <div class="col-md-4">
+            <form action="" method="post" class="border border-primary p-5" style="border-radius: 10px">
+                {% csrf_token %}
+                <div class="row form-group">
+                    <label for="">Usuario</label>
+                    <input type="text" name="username" class="form-control">
+                </div>
+                <div class="row form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="pass" >
+                </div>
+                <div class="row pt-5">
+                    <button class="btn btn-primary" type="submit">Entrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

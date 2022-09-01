@@ -2,13 +2,14 @@
 {% block section %}
 <div class="row justify-content-center pt-5">
 
-    <form action="" method="get">
+    <form action="{% url 'reportes_result' %}" method="POST">
+        {% csrf_token %}
         <div class="row">
             <div class="col-md-6">
                 <div class="row form-group">
                     <label for="select_tipo_reporte" class="form-label">Seleccione el tipo de reporte</label>
                     <select class="form-control" name="tipo_reporte" id="select_tipo_reporte">
-                        {%for opcion, opcion_render in opciones.items %}
+                        {% for opcion, opcion_render in opciones.items %}
                             <option value="{{opcion}}">{{opcion_render}}</option>
                         {% endfor %}
                     </select>
