@@ -18,7 +18,9 @@ def allowed_users(alloweds=[]):
                     if group_allowed in group_name:
                         return view_func(request, *args, **kwargs)
                     else:
-                        return redirect('inicio')
+                        continue
+                else:
+                    return redirect('inicio')
             else:
                 return redirect('inicio')
         return wrapper_func

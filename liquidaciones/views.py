@@ -3,7 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
 from django.shortcuts import render, redirect
 from .models import Empresa, Planta
+from .forms import  *
 from .decorators import *
+from .functions import *
 
 
 @unauthenticated_user
@@ -23,24 +25,85 @@ def login(request):
 
 @login_required(login_url='login')
 def inicio(request):
-    return render(request, "index.html")
+    modules = get_modules(request)
+    return render(request, "index.html", {'modules':modules, 'url_name':'inicio'})
 
 
 @login_required(login_url='login')
-@allowed_users(['preprocesado'])
+@allowed_users(['reportes'])
 def obtener_reportes_opciones(request):
+    modules = get_modules(request)
     opciones_reporte = {'nomina':'Nómina', 'planta':'Planta', 'liquidaciones':'Liquidaciones'}
-    return render(request, 'reportes/obtener_reportes.html', {'opciones':opciones_reporte} )
+    return render(request, 'reportes/obtener_reportes.html', {'opciones':opciones_reporte, 'modules':modules, 'url_name': 'reportes'} )
 
 
 @login_required(login_url='login')
 @allowed_users(['reportes'])
 def obtener_reportes_final(request):
+    modules = get_modules(request)
     if request.method == 'POST':
         tipo_reporte = request.POST['tipo_reporte']
     else:
         return redirect('home_reportes')
-    return render(request, 'reportes/resultado.html', {'opcion':tipo_reporte})
+    return render(request, 'reportes/resultado.html', {'opcion':tipo_reporte, 'modules':modules, 'url_name': 'reportes'})
+
+@login_required(login_url='login')
+@allowed_users(['preprocesamiento'])
+def preprocesamiento_home(request):
+    modules = get_modules(request)
+    return render(request, 'preprocesamiento/preprocesamiento_home.html', {'modules':modules, 'url_name': 'preprocesamiento'})
+
+@login_required(login_url='login')
+@allowed_users(['liquidaciones'])
+def liquidaciones_home(request):
+    modules = get_modules(request)
+    return render(request, 'liquidaciones/liquidaciones_home.html', {'modules':modules, 'url_name':'liquidaciones'})
+
+@login_required(login_url='login')
+@allowed_users(['parametros'])
+def parametros_home(request):
+    modules = get_modules(request)
+    return render(request, 'parametros/parametros_home.html', {'modules':modules, 'url_name': 'parametros'})
+
+@login_required(login_url='login')
+@allowed_users(['conceptos'])
+def conceptos_home(request):
+    modules = get_modules(request)
+    return render(request, 'conceptos/conceptos_home.html', {'modules': modules, 'url_name': 'conceptos'})
+
+@login_required(login_url='login')
+@allowed_users(['informes'])
+def informes_home(request):
+    modules = get_modules(request)
+    return render(request, 'informes/informes_home.html', {'modules': modules, 'url_name': 'informes'})
+
+@login_required(login_url='login')
+@allowed_users(['logs'])
+def logs_home(request):
+    modules = get_modules(request)
+    return render(request, 'logs/logs_home.html', {'modules':modules, 'url_name':'logs'})
+
+"""
+    Vistas relacionadas con el modulo empresa
+"""
+@login_required(login_url='login')
+@allowed_users(['empresas'])
+def empresas_home(request):
+    empresas  = Empresa.objects.all()
+    modules = get_modules(request)
+    return render(request, 'empresas/empresas_home.html', {'modules':modules, 'url_name':'empresas', 'empresas':empresas})
+
+@login_required(login_url='login')
+@allowed_users(['empresas'])
+def empresas_crear(request):
+    formulario = EmpresasCreateForm(request.POST or None)
+    modules = get_modules(request)
+    return render(request, 'empresas/empresa_crear.html', {'modules':modules, 'url_name':'empresas', 'formulario':formulario})
+
+
+"""
+Fin modulo de empresas
+"""
 
 @login_required(login_url='login')
 def logout(request):

@@ -1,3 +1,8 @@
 from django import forms
-##Formularios de reporte
+from .models import *
+##Formularios de empresas
 
+class EmpresasCreateForm(forms.ModelForm):
+    class Meta:
+        model= Empresa
+        fields = '__all__'

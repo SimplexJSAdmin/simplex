@@ -1,0 +1,8 @@
+<form action="">
+    {% csrf_token %}
+    {% for campo in formulario %}
+        <label for="" class="form-label">{{campo.label}}</label>
+        <input type="text" class="form-control">
+    {% endfor %}
+
+</form>

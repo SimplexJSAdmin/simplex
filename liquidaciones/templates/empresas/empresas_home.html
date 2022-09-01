@@ -1,0 +1,35 @@
+{%  extends 'base.html' %}
+{% block section %}
+<div class="row pt-2 pb-2 border mt-4 border-info" style="border-radius: 25px">
+    <div class="col-md-9 m-auto">
+        <h3 class="text-center">Empresas</h3>
+        <p>Desde este modulo podras gestionar todo lo relacionado con las empresas para las que deseas trabajar </p>
+    </div>
+</div>
+<div class="row pt-5">
+    <div class="col-md-12 justify-content-center">
+        {%if empresas %}
+        <table class="table table-bordered border-info">
+            <thead>
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Nombre empresa</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for empresa in empresas %}
+            <tr>
+                <td class="text-center">{{empresa.id}}</td>
+                <td class="text-center">{{empresa.name}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-info">
+            <p class="text-center"> No se han creado empresas aun. <a href="{%url 'empresa_crear'%}">Crea una</a> </p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
