@@ -1,7 +1,7 @@
 {%  extends 'base.html' %}
 {% block section %}
-<div class="row pt-2 pb-2 border mt-4 border-info" style="border-radius: 25px">
-    <div class="col-md-9 m-auto">
+<div class="row pt-2 pb-2 border bg-light mt-4 border-info" style="border-radius: 25px">
+    <div class="col-md-9 m-auto ">
         <h3 class="text-center">Empresas</h3>
         <p>Desde este modulo podras gestionar todo lo relacionado con las empresas para las que deseas trabajar </p>
     </div>
@@ -9,25 +9,45 @@
 <div class="row pt-5">
     <div class="col-md-12 justify-content-center">
         {%if empresas %}
-        <table class="table table-bordered border-info">
-            <thead>
-            <tr>
-                <th class="text-center">Id</th>
-                <th class="text-center">Nombre empresa</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for empresa in empresas %}
-            <tr>
-                <td class="text-center">{{empresa.id}}</td>
-                <td class="text-center">{{empresa.name}}</td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <div class="card">
+            <div class="card-header">
+                <div class="row justify-content-end">
+                    <div class="col-md-3">
+                        <a class="btn btn-info" href="{% url 'empresa_crear' %}">Crear nueva empresa <i class="fa-solid fa-circle-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Empresas disponibles</h5>
+                <table class="table table-bordered border-info">
+                    <thead>
+                    <tr class="table-primary">
+                        <th class="text-center">Id</th>
+                        <th class="text-center">Nombre empresa</th>
+                        <th class="text-center w-50">Acciones</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for empresa in empresas %}
+                    <tr>
+                        <td class="text-center">{{empresa.id_empresa}}</td>
+                        <td class="text-center">{{empresa.nombre_empresa}}</td>
+                        <td>
+                            <div class="row justify-content-center">
+                                <div class="col-md-2"><button class="btn btn-outline-danger"><i class="fa-regular fa-trash-can"></i>Eliminar</button></div>
+                                <div class="col-md-2"><button class="btn btn-outline-success"><i class="fa-solid fa-keyboard"></i>Modificar</button></div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
         {% else %}
         <div class="alert alert-info">
-            <p class="text-center"> No se han creado empresas aun. <a href="{%url 'empresa_crear'%}">Crea una</a> </p>
+            <p class="text-center"> No se han creado empresas aun. <a href="{%url 'empresa_crear'%}">Crea una</a></p>
         </div>
         {% endif %}
     </div>

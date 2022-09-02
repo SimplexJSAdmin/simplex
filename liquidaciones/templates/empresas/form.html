@@ -1,9 +1,34 @@
-
-<form action="">
+<form action="" method="post" class="pt-5 mt-5 pb-4 border border-ligth" style="border-radius: 15px">
     {% csrf_token %}
+     <div class="row justify-content-center">
+        <div class="col-md-11">
+            <div class="alert alert-primary text-center">
+                Por favor rellene los campos del formulario y de click en guardar para crear una nueva empresa
+            </div>
+        </div>
+    </div>
     {% for campo in formulario %}
-        <label for="" class="form-label">{{campo.label}}</label>
-        <input type="text" class="form-control">
+    <div class="row justify-content-center">
+        <div class="col-md-6 form-group">
+            <label for="" class="form-label">{{campo.label}}</label>
+            <input type="{{campo.field.widget.input_type}}" class="form-control" name="{{campo.name}}">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6 help-text">{{campo.errors}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% endfor %}
+    <div class="row justify-content-center pt-5">
+        <div class="col-md-12">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <button class="btn btn-primary" type="submit">Crear</button>
+                <a class="btn btn-primary"  href="{% url 'empresas' %}">Atras</a>
+            </div>
+        </div>
+    </div>
+
 
 </form>

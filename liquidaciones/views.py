@@ -59,11 +59,16 @@ def liquidaciones_home(request):
     modules = get_modules(request)
     return render(request, 'liquidaciones/liquidaciones_home.html', {'modules':modules, 'url_name':'liquidaciones'})
 
+
+"""Inicio de vistas de parametros"""
 @login_required(login_url='login')
 @allowed_users(['parametros'])
 def parametros_home(request):
     modules = get_modules(request)
     return render(request, 'parametros/parametros_home.html', {'modules':modules, 'url_name': 'parametros'})
+
+"""fin de vistas de parametros"""
+
 
 @login_required(login_url='login')
 @allowed_users(['conceptos'])
@@ -96,8 +101,11 @@ def empresas_home(request):
 @login_required(login_url='login')
 @allowed_users(['empresas'])
 def empresas_crear(request):
-    formulario = EmpresasCreateForm(request.POST or None)
     modules = get_modules(request)
+    formulario = EmpresasCreateForm(request.POST or None)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('empresas')
     return render(request, 'empresas/empresa_crear.html', {'modules':modules, 'url_name':'empresas', 'formulario':formulario})
 
 

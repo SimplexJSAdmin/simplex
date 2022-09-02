@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block section %}
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-11">
+        <div class="card m-auto pb-4 ps-4 pe-4 pt-4 border border-info" >
+            <div class="card-body">
+                <h5 class="card-title">Creación de empresas</h5>
+                <h6 class="card-subtitle mb-2 text-muted">En esta sección podrá crear las empresas para las que estaran disponibles los distintos módulos</h6>
+                {% include 'empresas/form.html'%}
+            </div>
+        </div>
+    </div>
 </div>
-    {% include 'empresas/form.html'%}
 {% endblock %}
