@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
 from django.shortcuts import render, redirect
-from .models import Empresa, Planta
+from .models import Empresa, Planta, ParametrosEPS, ParametrosFSP, ParametrosAFP, ParametrosARL, ParametrosCAJA, ParametrosICBF, ParametrosSENA
 from .forms import  *
 from .decorators import *
 from .functions import *
@@ -66,6 +66,26 @@ def liquidaciones_home(request):
 def parametros_home(request):
     modules = get_modules(request)
     return render(request, 'parametros/parametros_home.html', {'modules':modules, 'url_name': 'parametros'})
+
+
+@login_required(login_url='login')
+@allowed_users(['parametros'])
+def parametros_list(request, parameter_type):
+    modules = get_modules(request)
+    context = {'modules':modules, 'url_name':'parametros', 'parameter_type':parameter_type}
+    tablas_topes = {'eps':ParametrosEPS, 'afp':ParametrosAFP, 'fsp':ParametrosFSP, 'sena':ParametrosSENA, 'icbf':ParametrosICBF}
+    if parameter_type == 'arl':
+        parametros = ParametrosARL.objects.all()
+        context.update({'parametros':parametros, 'tabla_riesgos':True})
+    elif parameter_type == 'caja':
+        parametros = ParametrosCAJA.objects.all()
+        context.update({'parametros':parametros, 'tabla_basica':True})
+    elif parameter_type in tablas_topes:
+        parametros = tablas_topes[parameter_type].objects.all()
+        context.update({'parametros':parametros, 'tabla_topes':True})
+    else:
+        return redirect('parametros')
+    return render(request, 'parametros/parametros_lista.html', context)
 
 """fin de vistas de parametros"""
 

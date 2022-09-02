@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%block section%}
+<div class="row pt-2 pb-2 border bg-light mt-4 border-info" style="border-radius: 25px">
+    <div class="col-md-9 m-auto ">
+        <h3 class="text-center">{{parameter_type|upper}}</h3>
+        <p>Desde este modulo podras gestionar todo lo relacionado con los parametros de la categoria: {{parameter_type|upper}} </p>
+    </div>
+</div>
+<div class="row pt-5">
+    <div class="col-md-12 justify-content-center">
+        {%if parametros %}
+        <div class="card">
+            <div class="card-header">
+                <div class="row justify-content-end">
+                    <div class="col-md-3">
+                        <a class="btn btn-info" href="{% url 'empresa_crear' %}">Crear nuevo {{parameter_type}} <i
+                                class="fa-solid fa-circle-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% if tabla_basica %}
+            {%include 'parametros/tablas/tabla_basica.html'%}
+            {% endif %}
+            {% if tabla_topes %}
+            {%include 'parametros/tablas/tabla_tope_salarial.html'%}
+            {% endif %}
+            {% if tabla_riesgos %}
+            {% include 'parametros/tablas/tabla_nivel_riesgo.html'%}
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            <p class="text-center"> No se han creado conceptos para {{parameter_type|upper}} aun.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{%endblock%}

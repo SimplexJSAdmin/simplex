@@ -1,0 +1,37 @@
+<div class="card-body">
+    <h5 class="card-title">Conceptos por {{parameter_type|upper}} disponibles</h5>
+    <table class="table table-bordered border-info">
+        <thead>
+        <tr class="table-primary">
+            <th class="text-center">Id</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Porcentaje descuento empleado</th>
+            <th class="text-center">Porcentaje descuento empresa</th>
+            <th class="text-center">Porcentaje descuento total</th>
+            <th class="text-center">Limite inferior SMMLV</th>
+            <th class="text-center">Limite superior SMML</th>
+            <th class="text-center w-25">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for parametro in parametros %}
+        <tr>
+            <td class="text-center">{{parametro.id}}</td>
+            <td class="text-center">{{parametro.nombre_parametro}}</td>
+            <td class="text-center">{{parametro.porcentaje_descuento_empleado}}</td>
+            <td class="text-center">{{parametro.porcentaje_descuento_empresa}}</td>
+            <td class="text-center">{{parametro.porcentaje_descuento_total}}</td>
+            <td class="text-center">{{parametro.limite_inferior}}</td>
+            <td class="text-center">{{parametro.limite_superior}}</td>
+            <td>
+                <div class="row justify-content-center">
+                    <div class="col-md-2 p-0">
+                        <button class="btn btn-outline-success"><i class="fa-solid fa-keyboard"></i>Modificar</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

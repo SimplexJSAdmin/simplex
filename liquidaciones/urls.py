@@ -10,6 +10,7 @@ urlpatterns = [
     path('preprocesamiento', views.preprocesamiento_home, name='preprocesamiento'),
     path('liquidaciones', views.liquidaciones_home, name='liquidaciones'),
     path('parametros', views.parametros_home, name='parametros'),
+    path('parametros/<str:parameter_type>', views.parametros_list, name='parametros_list'),
     path('conceptos', views.conceptos_home, name='conceptos'),
     path('informes', views.informes_home, name='informes'),
     path('logs', views.logs_home, name='logs'),

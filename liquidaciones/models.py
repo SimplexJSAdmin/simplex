@@ -1,6 +1,7 @@
 from pyexpat import model
 from django.db import models
 
+
 class Empresa(models.Model):
     id_empresa = models.AutoField(primary_key=True)
     nombre_empresa = models.CharField(max_length=75, verbose_name='Nombre de la empresa')
@@ -9,11 +10,13 @@ class Empresa(models.Model):
         string_to_show = '{}.'.format(self.nombre_empresa)
         return string_to_show
 
+
 class Periodo(models.Model):
     id_periodo = models.IntegerField(primary_key=True)
     def __str__(self):
         string_to_show = '{}'.format(self.id_periodo)
         return string_to_show
+
 
 class ConceptoInterno(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -27,17 +30,69 @@ class ConceptoEmmpresa(models.Model):
     id_concepto_interno = models.ForeignKey(ConceptoInterno, on_delete=models.CASCADE)
 
 
-class Topes(models.Model):
+class ParametrosEPS(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre_tope = models.CharField(max_length=75)
-    clasificacion = models.CharField(max_length=100)
-    limite_superior = models.FloatField()
+    nombre_parametro = models.CharField(max_length=150, verbose_name='Descripción del descuento por concepto de EPS')
+    porcentaje_descuento_empleado = models.FloatField(verbose_name='Porcentaje de descuento empleado')
+    porcentaje_descuento_empresa = models.FloatField(verbose_name='Porcentaje de descuento para la empresa')
+    porcentaje_descuento_total = models.FloatField(verbose_name='Porcentaje de descuento total')
+    limite_inferior = models.FloatField(verbose_name='Minima cantidad de SMMLV para el concepto')
+    limite_superior = models.FloatField(verbose_name='Maxima cantidad de SMMLV para el concepto (excluyente)')
 
 
-class Globales(models.Model):
+class ParametrosAFP(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre_global = models.CharField(max_length=75)
-    valor = models.FloatField()
+    nombre_parametro = models.CharField(max_length=150, verbose_name='Descripción del descuento por concepto de AFP')
+    porcentaje_descuento_empleado = models.FloatField(verbose_name='Porcentaje de descuento empleado')
+    porcentaje_descuento_empresa = models.FloatField(verbose_name='Porcentaje de descuento para la empresa')
+    porcentaje_descuento_total = models.FloatField(verbose_name='Porcentaje de descuento total')
+    limite_inferior = models.FloatField(verbose_name='Minima cantidad de SMMLV para el concepto')
+    limite_superior = models.FloatField(verbose_name='Maxima cantidad de SMMLV para el concepto (excluyente)')
+
+
+class ParametrosFSP(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre_parametro = models.CharField(max_length=150, verbose_name='Descripción del descuento por concepto de FSP')
+    porcentaje_descuento_empleado = models.FloatField(verbose_name='Porcentaje de descuento empleado')
+    porcentaje_descuento_empresa = models.FloatField(verbose_name='Porcentaje de descuento para la empresa')
+    porcentaje_descuento_total = models.FloatField(verbose_name='Porcentaje de descuento total')
+    limite_inferior = models.FloatField(verbose_name='Minima cantidad de SMMLV para el concepto')
+    limite_superior = models.FloatField(verbose_name='Maxima cantidad de SMMLV para el concepto (excluyente)')
+
+
+class ParametrosARL(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre_parametro = models.CharField(max_length=150, verbose_name='Descripción del descuento por concepto de ARL')
+    porcentaje_descuento_empleado = models.FloatField(verbose_name='Porcentaje de descuento empleado')
+    porcentaje_descuento_empresa = models.FloatField(verbose_name='Porcentaje de descuento para la empresa')
+    porcentaje_descuento_total = models.FloatField(verbose_name='Porcentaje de descuento total')
+    nivel_riesgo = models.IntegerField(verbose_name='Nivel de riesgo para aplicar concepto')
+
+class ParametrosSENA(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre_parametro = models.CharField(max_length=150, verbose_name='Descripción del descuento por concepto de aportes SENA')
+    porcentaje_descuento_empleado = models.FloatField(verbose_name='Porcentaje de descuento empleado')
+    porcentaje_descuento_empresa = models.FloatField(verbose_name='Porcentaje de descuento para la empresa')
+    porcentaje_descuento_total = models.FloatField(verbose_name='Porcentaje de descuento total')
+    limite_inferior = models.FloatField(verbose_name='Minima cantidad de SMMLV para el concepto')
+    limite_superior = models.FloatField(verbose_name='Maxima cantidad de SMMLV para el concepto (excluyente)')
+
+
+class ParametrosICBF(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre_parametro = models.CharField(max_length=150, verbose_name='Descripción del descuento por concepto de aportes ICBF')
+    porcentaje_descuento_empleado = models.FloatField(verbose_name='Porcentaje de descuento empleado')
+    porcentaje_descuento_empresa = models.FloatField(verbose_name='Porcentaje de descuento para la empresa')
+    porcentaje_descuento_total = models.FloatField(verbose_name='Porcentaje de descuento total')
+    limite_inferior = models.FloatField(verbose_name='Minima cantidad de SMMLV para el concepto')
+    limite_superior = models.FloatField(verbose_name='Maxima cantidad de SMMLV para el concepto (excluyente)')
+
+class ParametrosCAJA(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre_parametro = models.CharField(max_length=150, verbose_name='Descripción del descuento por concepto de caja')
+    porcentaje_descuento_empleado = models.FloatField(verbose_name='Porcentaje de descuento empleado')
+    porcentaje_descuento_empresa = models.FloatField(verbose_name='Porcentaje de descuento para la empresa')
+    porcentaje_descuento_total = models.FloatField(verbose_name='Porcentaje de descuento total')
 
 
 class EPS(models.Model):
