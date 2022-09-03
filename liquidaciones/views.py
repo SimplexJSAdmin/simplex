@@ -29,6 +29,7 @@ def inicio(request):
         id_empresa = request.POST['empresa_plataforma']
         request.session['id_empresa'] = id_empresa
         print(id_empresa)
+        messages.success(request, 'Empresa seleccionada con éxito, ahora puedes usar los módulos')
         return redirect('inicio')
     empresas_permitidas = EmpresasPermitidas.objects.filter(id_usuario = request.user.id)
     print(empresas_permitidas)

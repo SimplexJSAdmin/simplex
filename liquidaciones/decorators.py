@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.contrib import messages
 
 def unauthenticated_user(view_func):
     def wrapper_func(request, *args, **kwargs):
@@ -16,6 +17,9 @@ def allowed_users(alloweds=[]):
                 group_name = [*map(lambda x: x.name, request.user.groups.all())]
                 for group_allowed in alloweds:
                     if group_allowed in group_name:
+                        if( 'id_empresa' not in request.session.keys()):
+                            messages.error(request, 'Primero debe seleccionar la empresa antes de trabajar con los modulos')
+                            return redirect('inicio')
                         return view_func(request, *args, **kwargs)
                     else:
                         continue
