@@ -66,6 +66,9 @@
                     <a class="nav-link {% if url_name == 'empresas' %}active{% endif %}" aria-current="page" href="{%url 'empresas'%}">Empresas</a>
                 </li>
                 {% endif %}
+                <li class="nav-item ms-5">
+                    <a href="{% url 'logout' %}" class="nav-link text-danger">Cerrar sesión</a>
+                </li>
             </ul>
         </div>
     </div>

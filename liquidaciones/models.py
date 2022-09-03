@@ -1,5 +1,6 @@
 from pyexpat import model
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Empresa(models.Model):
@@ -9,6 +10,12 @@ class Empresa(models.Model):
     def __str__(self):
         string_to_show = '{}.'.format(self.nombre_empresa)
         return string_to_show
+
+
+class EmpresasPermitidas(models.Model):
+    id = models.AutoField(primary_key=True)
+    id_empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Periodo(models.Model):

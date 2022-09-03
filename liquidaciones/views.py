@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
 from django.shortcuts import render, redirect
-from .models import Empresa, Planta, ParametrosEPS, ParametrosFSP, ParametrosAFP, ParametrosARL, ParametrosCAJA, ParametrosICBF, ParametrosSENA
+from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, ParametrosFSP, ParametrosAFP, ParametrosARL, ParametrosCAJA, ParametrosICBF, ParametrosSENA
 from .forms import  *
 from .decorators import *
 from .functions import *
@@ -25,8 +25,15 @@ def login(request):
 
 @login_required(login_url='login')
 def inicio(request):
+    if request.method == 'POST':
+        id_empresa = request.POST['empresa_plataforma']
+        request.session['id_empresa'] = id_empresa
+        print(id_empresa)
+        return redirect('inicio')
+    empresas_permitidas = EmpresasPermitidas.objects.filter(id_usuario = request.user.id)
+    print(empresas_permitidas)
     modules = get_modules(request)
-    return render(request, "index.html", {'modules':modules, 'url_name':'inicio'})
+    return render(request, "index.html", {'modules':modules, 'url_name':'inicio', 'empresas_permitidas':empresas_permitidas})
 
 
 @login_required(login_url='login')
@@ -64,6 +71,7 @@ def liquidaciones_home(request):
 @login_required(login_url='login')
 @allowed_users(['parametros'])
 def parametros_home(request):
+    print(request.session['id_empresa'])
     modules = get_modules(request)
     return render(request, 'parametros/parametros_home.html', {'modules':modules, 'url_name': 'parametros'})
 
@@ -135,6 +143,7 @@ Fin modulo de empresas
 
 @login_required(login_url='login')
 def logout(request):
+    del(request.session['id_empresa'])
     if request.user.is_authenticated:
         logout_django(request)
     return redirect('login')
