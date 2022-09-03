@@ -34,15 +34,15 @@ def inicio(request):
     empresas_permitidas = EmpresasPermitidas.objects.filter(id_usuario = request.user.id)
     print(empresas_permitidas)
     modules = get_modules(request)
-    return render(request, "index.html", {'modules':modules, 'url_name':'inicio', 'empresas_permitidas':empresas_permitidas})
+    return render(request, "index.html", {'modules': modules, 'url_name': 'inicio', 'empresas_permitidas': empresas_permitidas})
 
 
 @login_required(login_url='login')
 @allowed_users(['reportes'])
 def obtener_reportes_opciones(request):
     modules = get_modules(request)
-    opciones_reporte = {'nomina':'Nómina', 'planta':'Planta', 'liquidaciones':'Liquidaciones'}
-    return render(request, 'reportes/obtener_reportes.html', {'opciones':opciones_reporte, 'modules':modules, 'url_name': 'reportes'} )
+    opciones_reporte = {'nomina': 'Nómina', 'planta': 'Planta', 'liquidaciones': 'Liquidaciones'}
+    return render(request, 'reportes/obtener_reportes.html', {'opciones': opciones_reporte, 'modules': modules, 'url_name': 'reportes'} )
 
 
 @login_required(login_url='login')
@@ -53,19 +53,21 @@ def obtener_reportes_final(request):
         tipo_reporte = request.POST['tipo_reporte']
     else:
         return redirect('home_reportes')
-    return render(request, 'reportes/resultado.html', {'opcion':tipo_reporte, 'modules':modules, 'url_name': 'reportes'})
+    return render(request, 'reportes/resultado.html', {'opcion': tipo_reporte, 'modules': modules, 'url_name': 'reportes'})
+
 
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
 def preprocesamiento_home(request):
     modules = get_modules(request)
-    return render(request, 'preprocesamiento/preprocesamiento_home.html', {'modules':modules, 'url_name': 'preprocesamiento'})
+    return render(request, 'preprocesamiento/preprocesamiento_home.html', {'modules': modules, 'url_name': 'preprocesamiento'})
+
 
 @login_required(login_url='login')
 @allowed_users(['liquidaciones'])
 def liquidaciones_home(request):
     modules = get_modules(request)
-    return render(request, 'liquidaciones/liquidaciones_home.html', {'modules':modules, 'url_name':'liquidaciones'})
+    return render(request, 'liquidaciones/liquidaciones_home.html', {'modules': modules, 'url_name': 'liquidaciones'})
 
 
 """Inicio de vistas de parametros"""
@@ -74,24 +76,24 @@ def liquidaciones_home(request):
 def parametros_home(request):
     print(request.session['id_empresa'])
     modules = get_modules(request)
-    return render(request, 'parametros/parametros_home.html', {'modules':modules, 'url_name': 'parametros'})
+    return render(request, 'parametros/parametros_home.html', {'modules': modules, 'url_name': 'parametros'})
 
 
 @login_required(login_url='login')
 @allowed_users(['parametros'])
 def parametros_list(request, parameter_type):
     modules = get_modules(request)
-    context = {'modules':modules, 'url_name':'parametros', 'parameter_type':parameter_type}
-    tablas_topes = {'eps':ParametrosEPS, 'afp':ParametrosAFP, 'fsp':ParametrosFSP, 'sena':ParametrosSENA, 'icbf':ParametrosICBF}
+    context = {'modules': modules, 'url_name': 'parametros', 'parameter_type': parameter_type}
+    tablas_topes = {'eps': ParametrosEPS, 'afp': ParametrosAFP, 'fsp': ParametrosFSP, 'sena': ParametrosSENA, 'icbf': ParametrosICBF}
     if parameter_type == 'arl':
         parametros = ParametrosARL.objects.all()
-        context.update({'parametros':parametros, 'tabla_riesgos':True})
+        context.update({'parametros': parametros, 'tabla_riesgos': True})
     elif parameter_type == 'caja':
         parametros = ParametrosCAJA.objects.all()
-        context.update({'parametros':parametros, 'tabla_basica':True})
+        context.update({'parametros': parametros, 'tabla_basica': True})
     elif parameter_type in tablas_topes:
         parametros = tablas_topes[parameter_type].objects.all()
-        context.update({'parametros':parametros, 'tabla_topes':True})
+        context.update({'parametros': parametros, 'tabla_topes': True})
     else:
         return redirect('parametros')
     return render(request, 'parametros/parametros_lista.html', context)
@@ -115,7 +117,8 @@ def informes_home(request):
 @allowed_users(['logs'])
 def logs_home(request):
     modules = get_modules(request)
-    return render(request, 'logs/logs_home.html', {'modules':modules, 'url_name':'logs'})
+    return render(request, 'logs/logs_home.html', {'modules': modules, 'url_name': 'logs'})
+
 
 """
     Vistas relacionadas con el modulo empresa
@@ -125,7 +128,7 @@ def logs_home(request):
 def empresas_home(request):
     empresas  = Empresa.objects.all()
     modules = get_modules(request)
-    return render(request, 'empresas/empresas_home.html', {'modules':modules, 'url_name':'empresas', 'empresas':empresas})
+    return render(request, 'empresas/empresas_home.html', {'modules': modules, 'url_name': 'empresas', 'empresas': empresas})
 
 @login_required(login_url='login')
 @allowed_users(['empresas'])
@@ -135,7 +138,7 @@ def empresas_crear(request):
     if formulario.is_valid():
         formulario.save()
         return redirect('empresas')
-    return render(request, 'empresas/empresa_crear.html', {'modules':modules, 'url_name':'empresas', 'formulario':formulario})
+    return render(request, 'empresas/empresa_crear.html', {'modules': modules, 'url_name': 'empresas', 'formulario': formulario})
 
 
 """
@@ -144,7 +147,10 @@ Fin modulo de empresas
 
 @login_required(login_url='login')
 def logout(request):
-    del(request.session['id_empresa'])
+    try:
+        del(request.session['id_empresa'])
+    except:
+        pass
     if request.user.is_authenticated:
         logout_django(request)
     return redirect('login')

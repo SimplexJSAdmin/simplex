@@ -26,11 +26,20 @@ class Periodo(models.Model):
 
 
 class ConceptoInterno(models.Model):
+    SALARIAL = 'salarial'
+    NO_SALARIAL = 'no_salarial'
     id = models.IntegerField(primary_key=True)
     desc_concepto = models.CharField(max_length=75)
+    tipos_concepto_choices = [(SALARIAL, 'Salarial'), (NO_SALARIAL, 'No salarial')]
+    tipo_concepto = models.CharField(max_length=12, choices=tipos_concepto_choices, default=SALARIAL)
+
+    def __str__(self):
+        string_to_show = 'Concepto: {} ({})'.format(self.desc_concepto, self.tipo_concepto)
+        return string_to_show
 
 
-class ConceptoEmmpresa(models.Model):
+
+class ConceptoEmpresa(models.Model):
     id = models.AutoField(primary_key=True)
     id_empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     desc_concepto = models.CharField(max_length=150)
