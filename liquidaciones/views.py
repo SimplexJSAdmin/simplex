@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
 from django.shortcuts import render, redirect
-from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, ParametrosFSP, ParametrosAFP, ParametrosARL, ParametrosCAJA, ParametrosICBF, ParametrosSENA
+from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, ParametrosFSP, ParametrosAFP, ParametrosARL, ParametrosCAJA, ParametrosICBF, ParametrosSENA, ConceptoEmpresa, ConceptoInterno
 from .forms import  *
 from .decorators import *
 from .functions import *
@@ -100,12 +100,24 @@ def parametros_list(request, parameter_type):
 
 """fin de vistas de parametros"""
 
-
+""" Vistas relacionadas con conceptos internos y de empresa"""
 @login_required(login_url='login')
 @allowed_users(['conceptos'])
 def conceptos_home(request):
+    conceptos_empresa = ConceptoEmpresa.objects.filter(empresa_id=request.session['id_empresa'])
+    #concepto_empresa = conceptos_empresa[0]
+    #print(concepto_empresa.__dict__)
     modules = get_modules(request)
-    return render(request, 'conceptos/conceptos_home.html', {'modules': modules, 'url_name': 'conceptos'})
+    return render(request, 'conceptos/conceptos_home.html', {'modules': modules, 'url_name': 'conceptos', 'conceptos_empresa':conceptos_empresa})
+
+@login_required(login_url='login')
+@allowed_users(['conceptos'])
+def conceptos_internos_home(request):
+    modules = get_modules(request)
+    conceptos_internos = ConceptoInterno.objects.all()
+    return render(request, 'conceptos/internos/conceptos_internos_home.html', {'url_name':'conceptos', 'conceptos_internos':conceptos_internos, 'modules':modules})
+
+"""Fin de vistas de conceptos internos"""
 
 @login_required(login_url='login')
 @allowed_users(['informes'])

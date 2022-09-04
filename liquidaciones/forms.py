@@ -7,3 +7,8 @@ class EmpresasCreateForm(forms.ModelForm):
         model= Empresa
         fields = '__all__'
 
+class ConceptoInternoForm(forms.ModelForm):
+    class Meta:
+        model = ConceptoInterno
+        fields = '__all__'
+
