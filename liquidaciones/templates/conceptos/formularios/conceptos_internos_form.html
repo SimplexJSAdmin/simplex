@@ -1,0 +1,29 @@
+<form action="">
+    {% for campo in formulario %}
+    <div class="row">
+        <div class="col-md-9">
+            {% if campo.field.widget.input_type == 'select' %}
+            <label for=""></label>
+            <select name="" id="">
+                {% for opcion in campo %}
+                <option value="">{{opcion}}</option>
+                {% endfor %}
+            </select>
+             <div class="row pt-1">
+                <div class="col-md-12">
+                    <div class="col-md-6 help-text">{{campo.errors}}</div>
+                </div>
+            </div>
+            {% else %}
+            <label for="" class="form-label">{{campo.label}}</label>
+            <input type="{{campo.field.widget.input_type}}" class="form-control">
+            <div class="row pt-1">
+                <div class="col-md-12">
+                    <div class="col-md-6 help-text">{{campo.errors}}</div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</form>

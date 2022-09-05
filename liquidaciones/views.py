@@ -117,7 +117,14 @@ def conceptos_internos_home(request):
     conceptos_internos = ConceptoInterno.objects.all()
     return render(request, 'conceptos/internos/conceptos_internos_home.html', {'url_name':'conceptos', 'conceptos_internos':conceptos_internos, 'modules':modules})
 
-"""Fin de vistas de conceptos internos"""
+@login_required(login_url='login')
+@allowed_users(['conceptos'])
+def conceptos_internos_crear(request):
+    formulario = ConceptoInternoForm(request.POST or None)
+    return render(request, 'conceptos/internos/conceptos_internos_crear.html', {'formulario':formulario})
+
+
+"""Fin de vistas de conceptos internos y de empresa"""
 
 @login_required(login_url='login')
 @allowed_users(['informes'])
