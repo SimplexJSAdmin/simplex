@@ -1,15 +1,18 @@
-<form action="">
+<form action="" class="form mb-3">
+    {% csrf_token %}
     {% for campo in formulario %}
-    <div class="row">
-        <div class="col-md-9">
+    <div class="row justify-content-center">
+        <div class="col-md-9 pt-3">
             {% if campo.field.widget.input_type == 'select' %}
-            <label for=""></label>
-            <select name="" id="">
+            <label for="">Tipo de concepto</label>
+            <select name="" id="" class="form-control">
                 {% for opcion in campo %}
-                <option value="">{{opcion}}</option>
+                    {% if opcion != null or opcion == '' %}
+                         <option value="">{{campo}}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
-             <div class="row pt-1">
+             <div class="row pt-1 justify-content-center">
                 <div class="col-md-12">
                     <div class="col-md-6 help-text">{{campo.errors}}</div>
                 </div>

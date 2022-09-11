@@ -1,4 +1,20 @@
 {% extends 'base.html' %}
 {% block section %}
-    {% include 'conceptos/formularios/conceptos_internos_form.html' %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card">
+             <div class="card-header">
+                Creación de concepto interno
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        {% include 'conceptos/formularios/conceptos_internos_form.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

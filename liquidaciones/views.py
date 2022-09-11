@@ -74,7 +74,6 @@ def liquidaciones_home(request):
 @login_required(login_url='login')
 @allowed_users(['parametros'])
 def parametros_home(request):
-    print(request.session['id_empresa'])
     modules = get_modules(request)
     return render(request, 'parametros/parametros_home.html', {'modules': modules, 'url_name': 'parametros'})
 
@@ -121,6 +120,7 @@ def conceptos_internos_home(request):
 @allowed_users(['conceptos'])
 def conceptos_internos_crear(request):
     formulario = ConceptoInternoForm(request.POST or None)
+    print(formulario)
     return render(request, 'conceptos/internos/conceptos_internos_crear.html', {'formulario':formulario})
 
 
