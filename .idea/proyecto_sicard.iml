@@ -3,6 +3,18 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/DesarrolloWeb/data" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_logical/mappings" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_logical/snapshots" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_wal/archive_status" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_commit_ts" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_dynshmem" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_notify" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_replslot" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_serial" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_snapshots" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_stat" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_tblspc" />
+      <excludeFolder url="file://$MODULE_DIR$/data/db/pg_twophase" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
