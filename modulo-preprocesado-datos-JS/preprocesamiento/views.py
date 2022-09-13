@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import *
 import pandas as pd
-from functions import *
 
 # Create your views here.
 def home(request):
