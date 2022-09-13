@@ -12,10 +12,10 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
   web:
-    build: .
+    build: DesarrolloWeb/
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./DesarrolloWeb/:/code
     ports:
       - "8000:8000"
     environment:
@@ -24,3 +24,17 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+  back2:
+    build: ./modulo-preprocesado-datos-JS/
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      - ./modulo-preprocesado-datos-JS/:/code
+    ports:
+      - "8001:8001"
+    environment:
+    - POSTGRES_NAME=postgres
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db
+

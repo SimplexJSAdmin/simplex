@@ -1,0 +1,32 @@
+<form action="" class="form mb-3">
+    {% csrf_token %}
+    {% for campo in formulario %}
+    <div class="row justify-content-center">
+        <div class="col-md-9 pt-3">
+            {% if campo.field.widget.input_type == 'select' %}
+            <label for="">Tipo de concepto</label>
+            <select name="" id="" class="form-control">
+                {% for opcion in campo %}
+                    {% if opcion != null or opcion == '' %}
+                         <option value="">{{opcion}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+             <div class="row pt-1 justify-content-center">
+                <div class="col-md-12">
+                    <div class="col-md-6 help-text">{{campo.errors}}</div>
+                </div>
+            </div>
+            {% else %}
+            <label for="" class="form-label">{{campo.label}}</label>
+            <input type="{{campo.field.widget.input_type}}" class="form-control">
+            <div class="row pt-1">
+                <div class="col-md-12">
+                    <div class="col-md-6 help-text">{{campo.errors}}</div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</form>
