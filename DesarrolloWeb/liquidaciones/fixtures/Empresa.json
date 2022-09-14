@@ -1,0 +1,16 @@
+[
+  {
+    "model": "liquidaciones.empresa",
+    "pk": 1,
+    "fields": {
+      "nombre_empresa": "Avianca"
+    }
+  },
+   {
+    "model": "liquidaciones.empresa",
+    "pk": 2,
+    "fields": {
+      "nombre_empresa": "Empresa 2"
+    }
+  }
+]

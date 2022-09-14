@@ -1,8 +1,10 @@
 {%  extends 'base.html' %}
 {% block section %}
 <div class="row justify-content-center pt-5">
-
-    <p> ACA INICIA EL FLUJO DE PREPROCESAMIENTO</p>
-
+    <form action="/your-name/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
 </div>
 {% endblock %}

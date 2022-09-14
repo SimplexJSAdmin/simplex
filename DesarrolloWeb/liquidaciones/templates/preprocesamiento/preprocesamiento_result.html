@@ -1,0 +1,8 @@
+{%  extends 'base.html' %}
+{% block section %}
+<div class="row justify-content-center pt-5">
+    {% for liquidacion in files %}
+        <h4>{{liquidacion}}</h4>
+    {% endfor %}
+</div>
+{% endblock %}

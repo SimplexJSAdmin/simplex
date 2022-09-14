@@ -1,4 +1,4 @@
-COMANDOS DOCKER
+COMANDOS DOCKER:
     Levantar el contenedor con las imagenes definidas en el archivo docker-compose:
         docker-compose up
     Correr un contenedor con una imagen particular

@@ -56,14 +56,30 @@ def obtener_reportes_final(request):
     return render(request, 'reportes/resultado.html', {'opcion': tipo_reporte, 'modules': modules, 'url_name': 'reportes'})
 
 
+"""Inicio de vistas prepocesamiento"""
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
 def preprocesamiento_home(request):
+    form_file = FileForm(request.POST or None)
+    if form_file.is_valid():
+        nombre = form_file.cleaned_data['title']
+        id_usuario = form_file.cleaned_data['title']
+        nombre = form_file.cleaned_data['title']
     #TODO: Validar si en los logs no esta el log de proceso activo (back2 ocupado)
     #TODO: Recibir archivos de texto plano y guardarlos en la db
     modules = get_modules(request)
-    return render(request, 'preprocesamiento/preprocesamiento_home.html', {'modules': modules, 'url_name': 'preprocesamiento'})
+    return render(request, 'preprocesamiento/preprocesamiento_home.html', {'modules': modules, 'url_name': 'preprocesamiento', 'form':form_file})
 
+
+@login_required(login_url='login')
+@allowed_users(['preprocesamiento'])
+def preprocesamiento_result(request):
+    files = File.objects.filter(empresa_id = request.session['id_empresa'])
+    modules = get_modules(request)
+    return render(request, 'preprocesamiento_result.html', {'files':files, 'url_name':'preprocesamiento', 'modules':modules})
+
+
+"""Fin de vistas de preprocesamiento"""
 
 @login_required(login_url='login')
 @allowed_users(['liquidaciones'])

@@ -12,3 +12,7 @@ class ConceptoInternoForm(forms.ModelForm):
         model = ConceptoInterno
         fields = '__all__'
 
+class FileForm(forms.ModelForm):
+    class Meta:
+        model = File
+        fields = '__all__'

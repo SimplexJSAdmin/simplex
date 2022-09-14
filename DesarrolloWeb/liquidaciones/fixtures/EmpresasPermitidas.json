@@ -1,0 +1,18 @@
+[
+  {
+    "model": "liquidaciones.empresaspermitidas",
+    "pk": 1,
+    "fields": {
+      "id_usuario": 2,
+      "id_empresa": 1
+    }
+  } ,
+   {
+    "model": "liquidaciones.empresaspermitidas",
+    "pk": 2,
+    "fields": {
+      "id_usuario": 2,
+      "id_empresa": 2
+    }
+  }
+]

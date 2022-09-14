@@ -25,7 +25,7 @@ services:
     depends_on:
       - db
   back2:
-    build: ./modulo-preprocesado-datos-JS/
+    build: modulo-preprocesado-datos-JS/
     command: python manage.py runserver 0.0.0.0:8001
     volumes:
       - ./modulo-preprocesado-datos-JS/:/code

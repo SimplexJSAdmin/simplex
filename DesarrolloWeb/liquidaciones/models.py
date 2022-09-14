@@ -1,5 +1,6 @@
 from pyexpat import model
 from django.db import models
+from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
 
 
@@ -303,3 +304,10 @@ class Log(models.Model):
     descripcion = models.CharField(max_length=100)
     module = models.CharField(choices=modulos_disponibles, max_length=30)
     fecha = models.DateTimeField()
+
+
+class File(models.Model):
+    title=models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete= models.CASCADE)
+    empresa = models.ForeignKey(Empresa, on_delete= models.CASCADE)
+    csv=models.FileField(upload_to='path/',validators=[FileExtensionValidator(['pdf'])])
