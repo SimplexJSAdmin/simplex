@@ -306,8 +306,29 @@ class Log(models.Model):
     fecha = models.DateTimeField()
 
 
-class File(models.Model):
-    title=models.CharField(max_length=50)
+class Preprocesamiento(models.Model):
+    periodos = [
+        (1,1),
+        (2,2),
+        (3,3),
+        (4,4),
+        (5,5),
+        (6,6),
+        (7,7),
+        (8,8),
+        (9,9),
+        (10,10),
+        (11,11),
+        (12,12)
+    ]
+    estados = [
+        ('cargado', 'Cargado'),
+        ('aprobado', 'Aprobado')
+    ]
     user = models.ForeignKey(User, on_delete= models.CASCADE)
     empresa = models.ForeignKey(Empresa, on_delete= models.CASCADE)
-    csv=models.FileField(upload_to='path/',validators=[FileExtensionValidator(['pdf'])])
+    file_1 = models.FileField(upload_to='path/',validators=[FileExtensionValidator(['csv'])])
+    file_2 = models.FileField(upload_to='path/',validators=[FileExtensionValidator(['csv'])])
+    periodo = models.IntegerField(choices=periodos)
+    estado = models.CharField(choices=estados, max_length=20)
+    fecha = models.DateTimeField()
