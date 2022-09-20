@@ -12,7 +12,7 @@
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-xxl  navbar-light" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-xxl  navbar-dark bg-dark" style="background-color: #e3f2fd;">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,7 +75,7 @@
 </nav>
 <div class="container">
     {% for message in messages %}
-    <div class="row justify-content-center pt-5">
+    <div class="row justify-content-center pt-3">
         <div class="col-md-6">
             <div class="alert {{message.tags}}">
                 <p class="text-center">{{message}}</p>

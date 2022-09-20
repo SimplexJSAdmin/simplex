@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
 from django.shortcuts import render, redirect
-from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, ParametrosFSP, ParametrosAFP, ParametrosARL, ParametrosCAJA, ParametrosICBF, ParametrosSENA, ConceptoEmpresa, ConceptoInterno
+from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, ParametrosFSP, ParametrosAFP, ParametrosARL, ParametrosCAJA, ParametrosICBF, ParametrosSENA, ConceptoEmpresa, ConceptoInterno, Log
 from .forms import  *
 from .decorators import *
 from .functions import *
@@ -155,8 +155,9 @@ def informes_home(request):
 @login_required(login_url='login')
 @allowed_users(['logs'])
 def logs_home(request):
+    log = Log.objects.all()
     modules = get_modules(request)
-    return render(request, 'logs/logs_home.html', {'modules': modules, 'url_name': 'logs'})
+    return render(request, 'logs/logs_home.html', {'modules': modules, 'url_name': 'logs', 'logs':log})
 
 
 """
