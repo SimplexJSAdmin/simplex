@@ -1,9 +1,13 @@
 {%  extends 'base.html' %}
 {% block section %}
 <div class="row justify-content-center pt-5">
-    <form action="" enctype='multipart/form-data'>
-    {% csrf_token %}
-    {{form}}
-</form>
+    {% if not preprocesamientos %}
+        <div class="col-md-9">
+            <div class="alert alert-warning"><p class="text-center">No se han encontrado preprocesamientos</p></div>
+        </div>
+    {% endif %}
+    {% for preprocesamiento in preprocesamientos %}
+        {{preprocesamiento.id}}
+    {% endfor %}
 </div>
 {% endblock %}

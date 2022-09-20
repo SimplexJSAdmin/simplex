@@ -60,20 +60,23 @@ def obtener_reportes_final(request):
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
 def preprocesamiento_home(request):
-    form_file = FileForm(request.POST or None, request.FILES or None)
-    if form_file.is_valid():
-        form_file.save()
-        return redirect('preprocesamiento')
+    preprocesamientos_pendientes = Preprocesamiento.objects.filter(estado='cargado')
+    context = {'modules': get_modules(request), 'url_name': 'preprocesamiento'}
+    if(len(preprocesamientos_pendientes)>0):
+        messages.error(request, 'Ya se encuentra un preprocesamiento en curso, por favor espere al resultado para cargar nuevos archivos')
+        context.update({'habilitar_carga':False})
+    else:
+        preprocesamientos = Preprocesamiento.objects.filter(empresa_id=request.session['id_empresa'])
+        context.update({'habilitar_carga':True, 'preprocesamientos':preprocesamientos})
+    return render(request, 'preprocesamiento/preprocesamiento_home.html', context)
     #TODO: Validar si en los logs no esta el log de proceso activo (back2 ocupado)
     #TODO: Recibir archivos de texto plano y guardarlos en la db
-    modules = get_modules(request)
-    return render(request, 'preprocesamiento/preprocesamiento_home.html', {'modules': modules, 'url_name': 'preprocesamiento', 'form':form_file})
+    return render(request, 'preprocesamiento/preprocesamiento_home.html', context)
 
 
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
 def preprocesamiento_result(request):
-    files = File.objects.filter(empresa_id = request.session['id_empresa'])
     modules = get_modules(request)
     return render(request, 'preprocesamiento/preprocesamiento_result.html', {'files':files, 'url_name':'preprocesamiento', 'modules':modules})
 
