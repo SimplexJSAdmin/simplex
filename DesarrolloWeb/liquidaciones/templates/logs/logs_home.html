@@ -1,8 +1,87 @@
 {%  extends 'base.html' %}
 {% block section %}
 <div class="row justify-content-center pt-5">
+<h3>Sección de filtros</h3>
 
-    <p> ACA INICIA EL FLUJO DE LOGS </p>
+<script type="text/javascript">
+    function searchdata()
+    {
+        var input, table, tr,td, filter;
+        input = document.getElementById("search_module");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("table_logs");
+        tr = table.getElementsByTagName("tr");
+        for(i=0;i<tr.length;i++)
+        {
+            td = tr[i].getElementsByTagName("td")[2]
+            if(td)
+            {
+                displaydata = td.innerText;
+                if(displaydata.toUpperCase().indexOf(filter)>-1)
+                {
+                    tr[i].style.display="";
+                }
+                else{
+                    tr[i].style.display="none";
+                }
+            }
+        }
 
+    }
+</script>
+    
+
+
+<div class="row pt-2">
+    <div class="col-md-6">
+<select id="search_module" onclick="searchdata();">
+    <option disabled="true" selected> Módulo </option>
+    {%for log in logs%}
+    <option value="{{log.module}}">{{log.module}}</option>
+    {% endfor%}
+</select>
+<select>
+    <option disabled="true" selected> Fecha </option>
+    {%for log in logs%}
+    <option value="{{log.fecha}}">{{log.fecha}}</option>
+    {% endfor%}
+</select>
+<select>
+    <option disabled="true" selected> Usuario </option>
+    {%for log in logs%}
+    <option value="{{log.user_id}}">{{log.user_id}}> </option>
+    {% endfor%}
+</select>
+
+</div>
+</div>
+
+<div class="row pt-5">
+<table class="table table-striped" id="table_logs">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Descripción</th>
+            <th>Módulo</th>
+            <th>Fecha / Hora</th>
+            <th>User Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if logs %}
+        {% for log in logs %}
+        <tr>
+            <td>{{log.id}}</td>
+            <td>{{log.descripcion}}</td>
+            <td>{{log.module}}</td>
+            <td>{{log.fecha}}</td>
+            <td>{{log.user_id}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay registros de Logs</h1>
+        {% endif %}
+    </tbody>
+</table>
 </div>
 {% endblock %}
