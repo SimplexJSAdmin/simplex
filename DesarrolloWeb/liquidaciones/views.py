@@ -1,3 +1,4 @@
+import re
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
@@ -6,6 +7,7 @@ from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, Parametr
 from .forms import  *
 from .decorators import *
 from .functions import *
+from .filters import LogsFilter, ReportFilter
 
 
 @unauthenticated_user
@@ -51,9 +53,12 @@ def obtener_reportes_final(request):
     modules = get_modules(request)
     if request.method == 'POST':
         tipo_reporte = request.POST['tipo_reporte']
+        nomina = Nomina.objects.all()
+        myFilter = ReportFilter(request.GET, queryset=nomina)
+        nomina = myFilter.qs
     else:
         return redirect('home_reportes')
-    return render(request, 'reportes/resultado.html', {'opcion': tipo_reporte, 'modules': modules, 'url_name': 'reportes'})
+    return render(request, 'reportes/resultado.html', {'opcion': tipo_reporte, 'modules': modules, 'url_name': 'reportes', 'nominas':nomina,'myFilter':myFilter})
 
 
 """Inicio de vistas prepocesamiento"""
@@ -157,7 +162,9 @@ def informes_home(request):
 def logs_home(request):
     log = Log.objects.all()
     modules = get_modules(request)
-    return render(request, 'logs/logs_home.html', {'modules': modules, 'url_name': 'logs', 'logs':log})
+    myFilter = LogsFilter(request.GET, queryset=log)
+    log = myFilter.qs
+    return render(request, 'logs/logs_home.html', {'modules': modules, 'url_name': 'logs', 'logs':log, 'myFilter':myFilter})
 
 
 """
