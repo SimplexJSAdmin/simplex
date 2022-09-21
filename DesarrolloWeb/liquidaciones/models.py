@@ -20,7 +20,7 @@ class EmpresasPermitidas(models.Model):
 
 
 class Periodo(models.Model):
-    id_periodo = models.IntegerField(primary_key=True)
+    cod_periodo = models.IntegerField(primary_key=True)
     def __str__(self):
         string_to_show = '{}'.format(self.id_periodo)
         return string_to_show
@@ -161,8 +161,8 @@ class Planta(models.Model):
 
 
 class Nomina(models.Model):
-    id_empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
-    id_periodo = models.ForeignKey(Periodo, on_delete=models.CASCADE)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    periodo = models.ForeignKey(Periodo, on_delete=models.CASCADE)
     no_personal = models.IntegerField()
     apellido_nombre = models.CharField(max_length=75)
     nombre_completo = models.CharField(max_length=75)

@@ -7,7 +7,7 @@ from .models import *
 
 
 class LogsFilter(django_filters.FilterSet):
-    #log_date = DateFilter(field_name="fecha", lookup_expr='eq')
+    log_date = DateFilter(field_name="fecha", lookup_expr='eq')
     class Meta:
         model = Log
         fields = '__all__'

@@ -1,0 +1,14 @@
+[
+  {
+    "model": "liquidaciones.periodo",
+    "fields":{
+      "cod_periodo": 202201
+    }
+  },
+  {
+    "model": "liquidaciones.periodo",
+    "fields":{
+      "cod_periodo": 202202
+    }
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "model": "liquidaciones.conceptointerno",
+    "pk": 1,
+    "fields": {
+      "desc_concepto": "Este es un concepto de prueba",
+      "tipo_concepto": "Salarial"
+    }
+  }
+]
