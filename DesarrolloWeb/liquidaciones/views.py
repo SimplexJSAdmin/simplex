@@ -10,7 +10,7 @@ from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, Parametr
 from .forms import  *
 from .decorators import *
 from .functions import *
-from .filters import LogsFilter, ReportFilter
+from .filters import LogsFilter
 
 
 @unauthenticated_user
