@@ -1,13 +1,22 @@
 {%  extends 'base.html' %}
 {% block section %}
 <div class="row justify-content-center pt-5">
+    <div class="col-md-7">
+        <div class="card">
+            <dv class="card-header">
+                <p class="text-center">En esta sección podra encontrar los preprocesamientos realizados para los diferentes periodos, tenga en cuenta que
+                    <strong>la plataforma no le permitirá cargar preprocesamientos previos al periodo actual: {{periodo_actual}}</strong></p>
+            </dv>
+        </div>
+        <p></p>
+    </div>
     {% if not preprocesamientos %}
     <div class="col-md-9">
         <div class="alert alert-warning"><p class="text-center">No se han encontrado preprocesamientos</p></div>
     </div>
     {% else %}
     <div class="card-body">
-        <h5 class="card-title">Preprocesamientos {% if habilitar_carga %} <button class="btn btn-primary">Crear <i class="fa-solid fa-plus"></i></button> {% endif %}</h5>
+        <h5 class="card-title">Preprocesamientos {% if habilitar_carga %} <a href="{% url 'preprocesamiento_crear' %}" class="btn btn-primary">Crear <i class="fa-solid fa-plus"></i></a> {% endif %}</h5>
         <table class="table table-bordered border-secondary">
             <thead>
             <tr class="table-primary">
@@ -16,6 +25,7 @@
                 <th class="text-center">Empresa</th>
                 <th class="text-center">Archivo de planta</th>
                 <th class="text-center">Archivo de nomina</th>
+                <th class="text-center">Archivo de novedades</th>
                 <th class="text-center">Periodo</th>
                 <th class="text-center">Estado del preprocesamiento</th>
                 <th class="text-center">Fecha</th>
@@ -28,8 +38,9 @@
                 <td class="text-center">{{preprocesamiento.id}}</td>
                 <td class="text-center">{{preprocesamiento.user}}</td>
                 <td class="text-center">{{preprocesamiento.empresa}}</td>
-                <td class="text-center">{{preprocesamiento.file_1}}</td>
-                <td class="text-center">{{preprocesamiento.file_2}}</td>
+                <td class="text-center"><a href="preprocesamiento/descargar/planta/{{preprocesamiento.planta}}">Descargar archivo</a></td>
+                <td class="text-center"><a href="preprocesamiento/descargar/nomina/{{preprocesamiento.nomina}}">Descargar archivo</a></td>
+                <td class="text-center"><a href="preprocesamiento/descargar/novedades/{{preprocesamiento.novedades}}">Descargar archivo</a></td>
                 <td class="text-center">{{preprocesamiento.periodo}}</td>
                 <td class="text-center">{{preprocesamiento.estado}}</td>
                 <td class="text-center">{{preprocesamiento.fecha}}</td>

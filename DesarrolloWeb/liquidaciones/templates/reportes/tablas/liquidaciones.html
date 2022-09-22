@@ -1,0 +1,28 @@
+<table class="table table-striped" id="table_logs">
+            <thead>
+            <tr>
+                <th>Periodo</th>
+                <th>No_Personal</th>
+                <th>Apellido_Nombre</th>
+                <th>codigo_concepto</th>
+                <th>desc_concepto</th>
+                <th>cantidad</th>
+                <th>importe</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for nomina in nominas %}
+            <tr>
+                <td>{{nomina.id_periodo}}</td>
+                <td>{{nomina.no_personal}}</td>
+                <td>{{nomina.apellido_nombre}}</td>
+                <td>{{nomina.cod_concepto}}</td>
+                <td>{{nomina.desc_concepto}}</td>
+                <td>{{nomina.cantidad}}</td>
+                <td>{{nomina.importe}}</td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>

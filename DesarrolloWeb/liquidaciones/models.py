@@ -20,20 +20,20 @@ class EmpresasPermitidas(models.Model):
 
 
 class Periodo(models.Model):
-    cod_periodo = models.CharField(max_length=10, primary_key=True)
+    id_periodo = models.CharField(max_length=10, primary_key=True)
     meses = [
-        (1,1),
-        (2,2),
-        (3,3),
-        (4,4),
-        (5,5),
-        (6,6),
-        (7,7),
-        (8,8),
-        (9,9),
-        (10,10),
-        (11,11),
-        (12,12)
+        ('01',1),
+        ('02',2),
+        ('03',3),
+        ('04',4),
+        ('05',5),
+        ('06',6),
+        ('07',7),
+        ('08',8),
+        ('09',9),
+        ('10',10),
+        ('11',11),
+        ('12',12)
     ]
     year_periodo = models.CharField(max_length=5)
     mes_periodo = models.CharField(choices=meses, max_length=3)
