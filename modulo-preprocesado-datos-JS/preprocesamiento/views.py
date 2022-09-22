@@ -13,3 +13,15 @@ def home(request):
     empresas = Empresa.objects.all()
     #TODO: Al finalizar escribir log de proceso finalizado
     return render(request, 'empresa_prueba.html', {'empresas':logs})
+
+def cargar_archivos_usuario(request):
+    #Recibe un multipart-form 3-archivos
+    pass
+
+
+def cargar_archivos_en_db(request):
+    pass
+
+
+def liquidar(request):
+    pass
