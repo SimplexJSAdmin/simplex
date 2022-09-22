@@ -1,0 +1,24 @@
+[
+  {
+    "model": "liquidaciones.log",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "empresa": 1,
+      "descripcion":  "Este es un log de prueba",
+      "module": "preprocesado",
+      "fecha":  "2022-07-15 21:00:15"
+    }
+  },
+  {
+    "model": "liquidaciones.log",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "empresa": 2,
+      "descripcion":  "Este es un segundo log de prueba",
+      "module": "conceptos",
+      "fecha":  "2022-07-12 2:00:15"
+    }
+  }
+]

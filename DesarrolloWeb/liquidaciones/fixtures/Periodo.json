@@ -1,14 +1,20 @@
 [
   {
     "model": "liquidaciones.periodo",
+    "pk": 1,
     "fields":{
-      "cod_periodo": 202201
+      "cod_periodo": "202201",
+      "year_periodo": "2022",
+      "mes_periodo": "01"
     }
   },
   {
     "model": "liquidaciones.periodo",
+    "pk": 2,
     "fields":{
-      "cod_periodo": 202202
+      "cod_periodo": "202202",
+      "year_periodo": "2022",
+      "mes_periodo": "02"
     }
   }
 ]

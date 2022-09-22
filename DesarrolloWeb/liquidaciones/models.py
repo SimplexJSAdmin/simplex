@@ -20,7 +20,23 @@ class EmpresasPermitidas(models.Model):
 
 
 class Periodo(models.Model):
-    cod_periodo = models.IntegerField(primary_key=True)
+    cod_periodo = models.CharField(max_length=10, primary_key=True)
+    meses = [
+        (1,1),
+        (2,2),
+        (3,3),
+        (4,4),
+        (5,5),
+        (6,6),
+        (7,7),
+        (8,8),
+        (9,9),
+        (10,10),
+        (11,11),
+        (12,12)
+    ]
+    year_periodo = models.CharField(max_length=5)
+    mes_periodo = models.CharField(choices=meses, max_length=3)
     def __str__(self):
         string_to_show = '{}'.format(self.id_periodo)
         return string_to_show
@@ -298,7 +314,9 @@ class Liquidaciones(models.Model):
     fecha_radicacion_exterior = models.CharField(max_length=10, default='')
 
 class Log(models.Model):
+    #TODO: terminar de incluir modulos disponibless
     modulos_disponibles = [('preprocesado', 'Preprocesado'), ('conceptos', 'Conceptos')]
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     descripcion = models.CharField(max_length=100)
@@ -307,28 +325,19 @@ class Log(models.Model):
 
 
 class Preprocesamiento(models.Model):
-    periodos = [
-        (1,1),
-        (2,2),
-        (3,3),
-        (4,4),
-        (5,5),
-        (6,6),
-        (7,7),
-        (8,8),
-        (9,9),
-        (10,10),
-        (11,11),
-        (12,12)
-    ]
     estados = [
-        ('cargado', 'Cargado'),
-        ('aprobado', 'Aprobado')
+        ('subidos_archivos', 'Archivos cargados al servidor'),
+        ('cargando_db', 'Cargando archivos a la base de datos'),
+        ('generando_liquidaciones', 'Generando las liquidaciones'),
+        ('liquidacion_disponible', 'Liquidación disponible para descarga'),
+        ('error_mi_planilla', 'Liquidación no ha pasado la revisión final'),
+        ('exito_mi_planilla', 'Liquidación finalizada y aceptada por MiPlanilla')
     ]
     user = models.ForeignKey(User, on_delete= models.CASCADE)
-    empresa = models.ForeignKey(Empresa, on_delete= models.CASCADE)
-    file_1 = models.FileField(upload_to='path/',validators=[FileExtensionValidator(['csv'])])
-    file_2 = models.FileField(upload_to='path/',validators=[FileExtensionValidator(['csv'])])
-    periodo = models.IntegerField(choices=periodos)
-    estado = models.CharField(choices=estados, max_length=20)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    planta = models.FileField(upload_to='path/', validators=[FileExtensionValidator(['csv'])])
+    nomina = models.FileField(upload_to='path/', validators=[FileExtensionValidator(['csv'])])
+    novedades  = models.FileField(upload_to='path/', validators=[FileExtensionValidator(['txt'])])
+    periodo = models.ForeignKey(Periodo, on_delete=models.CASCADE)
+    estado = models.CharField(choices=estados, max_length=35)
     fecha = models.DateTimeField()

@@ -11,7 +11,7 @@ class LogsFilter(django_filters.FilterSet):
     class Meta:
         model = Log
         fields = '__all__'
-        exclude = ['descripcion', 'fecha']
+        exclude = ['descripcion', 'fecha', 'empresa']
 
 class ReportFilter(django_filters.FilterSet):
     class Meta:

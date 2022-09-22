@@ -1,4 +1,5 @@
 import re
+import datetime
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
@@ -65,25 +66,28 @@ def obtener_reportes_final(request):
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
 def preprocesamiento_home(request):
-    preprocesamientos_pendientes = Preprocesamiento.objects.filter(estado='cargado')
+    #TODO Validar si ya hay un preprocesamiemto para el periodo actual
+    # En caso de haberlo, solo permitir la modificacion, en caso contrario permitir creacion
+    #Listar los preprocesamientos, incluir link para cambiar estados
+    preprocesamientos_pendientes = Preprocesamiento.objects.filter(estado='cargando_db').filter(estado='generando_liquidaciones').filter(estado='liquidacion_disponible')
+    preprocesamientos = Preprocesamiento.objects.filter(empresa_id=request.session['id_empresa'])
     context = {'modules': get_modules(request), 'url_name': 'preprocesamiento'}
-    if(len(preprocesamientos_pendientes)>0):
-        messages.error(request, 'Ya se encuentra un preprocesamiento en curso, por favor espere al resultado para cargar nuevos archivos')
-        context.update({'habilitar_carga':False})
+    if(block_load_file(preprocesamientos_pendientes)):
+        messages.error(request, 'El servidor dedicado se encuentra trabajando, por favor intente en unos momentos')
+        context.update({'habilitar_carga': False, 'preprocesamientos': preprocesamientos})
     else:
-        preprocesamientos = Preprocesamiento.objects.filter(empresa_id=request.session['id_empresa'])
-        context.update({'habilitar_carga':True, 'preprocesamientos':preprocesamientos})
-    return render(request, 'preprocesamiento/preprocesamiento_home.html', context)
-    #TODO: Validar si en los logs no esta el log de proceso activo (back2 ocupado)
-    #TODO: Recibir archivos de texto plano y guardarlos en la db
+        context.update({'habilitar_carga': True, 'preprocesamientos': preprocesamientos})
     return render(request, 'preprocesamiento/preprocesamiento_home.html', context)
 
 
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
-def preprocesamiento_result(request):
+def preprocesamiento_crear(request):
+    #TODO obtener preprocesamientos y validar resultados para permitir cargar archivos o no
+    periodo_actual = datetime.datetime.now().strftime('%Y%m')
+    periodo_modelo = Periodo.objects.filter(cod_periodo=periodo_actual)
     modules = get_modules(request)
-    return render(request, 'preprocesamiento/preprocesamiento_result.html', {'files':files, 'url_name':'preprocesamiento', 'modules':modules})
+    return render(request, 'preprocesamiento/preprocesamiento_result.html', {'url_name':'preprocesamiento', 'modules':modules})
 
 
 """Fin de vistas de preprocesamiento"""
@@ -160,7 +164,7 @@ def informes_home(request):
 @login_required(login_url='login')
 @allowed_users(['logs'])
 def logs_home(request):
-    log = Log.objects.all()
+    log = Log.objects.filter(empresa_id = request.session['id_empresa'])
     modules = get_modules(request)
     myFilter = LogsFilter(request.GET, queryset=log)
     log = myFilter.qs

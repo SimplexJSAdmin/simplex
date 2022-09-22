@@ -2,12 +2,50 @@
 {% block section %}
 <div class="row justify-content-center pt-5">
     {% if not preprocesamientos %}
-        <div class="col-md-9">
-            <div class="alert alert-warning"><p class="text-center">No se han encontrado preprocesamientos</p></div>
-        </div>
+    <div class="col-md-9">
+        <div class="alert alert-warning"><p class="text-center">No se han encontrado preprocesamientos</p></div>
+    </div>
+    {% else %}
+    <div class="card-body">
+        <h5 class="card-title">Preprocesamientos {% if habilitar_carga %} <button class="btn btn-primary">Crear <i class="fa-solid fa-plus"></i></button> {% endif %}</h5>
+        <table class="table table-bordered border-secondary">
+            <thead>
+            <tr class="table-primary">
+                <th class="text-center">Id</th>
+                <th class="text-center">Usuario</th>
+                <th class="text-center">Empresa</th>
+                <th class="text-center">Archivo de planta</th>
+                <th class="text-center">Archivo de nomina</th>
+                <th class="text-center">Periodo</th>
+                <th class="text-center">Estado del preprocesamiento</th>
+                <th class="text-center">Fecha</th>
+                <th class="text-center w-25">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+             {% for preprocesamiento in preprocesamientos %}
+            <tr>
+                <td class="text-center">{{preprocesamiento.id}}</td>
+                <td class="text-center">{{preprocesamiento.user}}</td>
+                <td class="text-center">{{preprocesamiento.empresa}}</td>
+                <td class="text-center">{{preprocesamiento.file_1}}</td>
+                <td class="text-center">{{preprocesamiento.file_2}}</td>
+                <td class="text-center">{{preprocesamiento.periodo}}</td>
+                <td class="text-center">{{preprocesamiento.estado}}</td>
+                <td class="text-center">{{preprocesamiento.fecha}}</td>
+                <td>
+                    <div class="row justify-content-center">
+                        <div class="col-md-2 p-0">
+                            <button class="btn btn-outline-success"><i class="fa-solid fa-keyboard"></i>Modificar
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     {% endif %}
-    {% for preprocesamiento in preprocesamientos %}
-        {{preprocesamiento.id}}
-    {% endfor %}
 </div>
 {% endblock %}

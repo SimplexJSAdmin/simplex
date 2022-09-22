@@ -4,3 +4,8 @@ def get_modules(request):
         return modules_names
     else:
         return []
+
+def block_load_file(preprocesos):
+    if len(preprocesos)>0:
+        return True
+    return False
