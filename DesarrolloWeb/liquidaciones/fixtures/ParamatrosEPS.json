@@ -1,0 +1,14 @@
+[
+    {
+        "model": "liquidaciones.ParametrosEPS",
+        "pk": 1,
+        "fields":{
+            "nombre_parametro": "Cotización Salud",
+            "porcentaje_descuento_empleado": 0.04,
+            "porcentaje_descuento_empresa": 0.085,
+            "porcentaje_descuento_total": 0.125,
+            "limite_inferior": 1,
+            "limite_superior": 25    
+        }
+    }
+]
