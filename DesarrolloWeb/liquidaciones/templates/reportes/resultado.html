@@ -3,7 +3,17 @@
 <div class="row justify-content-center pt-5">
     <h1>GENERANDO INFORME DE {{opcion}}</h1>
 
-
+    <div class="row pt-2">
+        <div class = "col">
+            <div class="card card-body">
+                <form method="get">
+                    {{ myFilter.form }}
+                    <div class="row pt-3"></div>
+                    <button class="btn btn-primary" type="submit"> Buscar </button>
+                </form>
+            </div>
+        </div>
+       </div>
 
     <div class="row pt-5">
         <table class="table table-striped" id="table_logs">

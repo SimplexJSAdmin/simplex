@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 {% block section %}
+
+<div class="row pt-4">
+    <figure class="text-center">
+        <blockquote class="blockquote">
+          <h2>Sistema de generación de planilla de seguridad social</h2>
+        </blockquote>
+        <figcaption> copyright: <cite title="Source Title">Sicard Asesores</cite>
+        </figcaption>
+    </figure>
+    
+</div>
+    
     <div class="row justify-content-center align-items-center m-5">
         <div class="col-md-4">
+            <img class = "card-img-top" src="../../media/path/logo_sicard.png" alt="" >
+            <div class="row pt-2">
             <form action="" method="post" class="border border-primary p-5" style="border-radius: 10px">
                 {% csrf_token %}
                 <div class="row form-group">
@@ -17,5 +31,6 @@
                 </div>
             </form>
         </div>
+        </div>
     </div>
-{% endblock %}
+{% endblock %}  
