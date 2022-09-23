@@ -25,46 +25,55 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item ms-5">
-                    <a class="nav-link  {% if url_name == 'inicio' %}active{% endif %}" aria-current="page" href="{% url 'inicio'%}">Inicio</a>
+                    <a class="nav-link  {% if url_name == 'inicio' %}active{% endif %}" aria-current="page"
+                       href="{% url 'inicio'%}">Inicio</a>
                 </li>
                 {% if 'preprocesamiento' in modules%}
                 <li class="nav-item ms-5">
-                    <a class="nav-link {% if url_name == 'preprocesamiento' %}active{% endif %}" aria-current="page" href="{% url 'preprocesamiento' %}">Preprocesamiento</a>
+                    <a class="nav-link {% if url_name == 'preprocesamiento' %}active{% endif %}" aria-current="page"
+                       href="{% url 'preprocesamiento' %}">Preprocesamiento</a>
                 </li>
                 {% endif %}
                 {% if 'liquidaciones' in modules%}
                 <li class="nav-item ms-5">
-                    <a class="nav-link {% if url_name == 'liquidaciones' %}active{% endif %}" aria-current="page" href="{% url 'liquidaciones' %}">Liquidaciones</a>
+                    <a class="nav-link {% if url_name == 'liquidaciones' %}active{% endif %}" aria-current="page"
+                       href="{% url 'liquidaciones' %}">Liquidaciones</a>
                 </li>
                 {% endif %}
                 {% if 'reportes' in modules%}
                 <li class="nav-item ms-5">
-                    <a class="nav-link {% if url_name == 'reportes' %}active{% endif %} " aria-current="page" href="{% url 'home_reportes'%}">Reportes</a>
+                    <a class="nav-link {% if url_name == 'reportes' %}active{% endif %} " aria-current="page"
+                       href="{% url 'home_reportes'%}">Reportes</a>
                 </li>
                 {% endif %}
                 {% if 'parametros' in modules%}
                 <li class="nav-item ms-5">
-                    <a class="nav-link {% if url_name == 'parametros' %}active{% endif %}" aria-current="page" href="{% url 'parametros' %}">Parametros</a>
+                    <a class="nav-link {% if url_name == 'parametros' %}active{% endif %}" aria-current="page"
+                       href="{% url 'parametros' %}">Parametros</a>
                 </li>
                 {% endif %}
                 {% if 'conceptos' in modules%}
                 <li class="nav-item ms-5">
-                    <a class="nav-link {% if url_name == 'conceptos' %}active{% endif %}" aria-current="page" href="{% url 'conceptos' %}">Conceptos</a>
+                    <a class="nav-link {% if url_name == 'conceptos' %}active{% endif %}" aria-current="page"
+                       href="{% url 'conceptos' %}">Conceptos</a>
                 </li>
                 {% endif %}
                 {% if 'informes' in modules%}
                 <li class="nav-item ms-5">
-                    <a class="nav-link {% if url_name == 'informes' %}active{% endif %}" aria-current="page" href="{% url 'informes' %}">Informes</a>
+                    <a class="nav-link {% if url_name == 'informes' %}active{% endif %}" aria-current="page"
+                       href="{% url 'informes' %}">Informes</a>
                 </li>
                 {% endif %}
                 {% if 'logs' in modules%}
                 <li class="nav-item ms-5">
-                    <a class="nav-link {% if url_name == 'logs' %}active{% endif %}" aria-current="page" href="{% url 'logs'  %}">logs</a>
+                    <a class="nav-link {% if url_name == 'logs' %}active{% endif %}" aria-current="page"
+                       href="{% url 'logs'  %}">logs</a>
                 </li>
                 {% endif %}
                 {% if 'empresas' in modules%}
                 <li class="nav-item ms-5">
-                    <a class="nav-link {% if url_name == 'empresas' %}active{% endif %}" aria-current="page" href="{%url 'empresas'%}">Empresas</a>
+                    <a class="nav-link {% if url_name == 'empresas' %}active{% endif %}" aria-current="page"
+                       href="{%url 'empresas'%}">Empresas</a>
                 </li>
                 {% endif %}
                 <li class="nav-item ms-5">
@@ -74,22 +83,74 @@
         </div>
     </div>
 </nav>
-<div class="container">
-    {% for message in messages %}
-    <div class="row justify-content-center pt-3">
-        <div class="col-md-6">
-            <div class="alert {{message.tags}}">
-                <p class="text-center">{{message}}</p>
+<div class="container mb-5">
+    <div class="row pb-5">
+        {% for message in messages %}
+        <div class="row justify-content-center pt-3">
+            <div class="col-md-6">
+                <div class="alert {{message.tags}} alert-dismissible fade show" role="alert">
+                    <p class="text-center">{{message}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
         </div>
+        {% endfor %}
+        {% block section %}{% endblock %}
     </div>
-    {% endfor %}
-    {% block section %}{% endblock %}
+    <div class="col-md-1">
+        {% if empresa_seleccionada %}
+        <div class="row justify-content-end">
+            <div class="col-md-2 position-fixed bottom-0 end-0 p-3">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <small class="text-muted">Empresa actual</small>
+                            </div>
+                            <div class="col-md-2">
+                                <button style="border: none 0px; background-color: transparent" class="p-0 m-0"
+                                        onclick="mostrar_ocultar_empresa()">
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" id="contenedor_empresa">
+                        <p class="text-center">{{empresa_seleccionada}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
 </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <script src="https://kit.fontawesome.com/44fe2fa215.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+{% if swal_alert %}
+<script>
+    $(function () {
+        swal.fire({'title': '{{swal_alert.message}}', 'icon': '{{swal_alert.icon_name}}'});
+    });
+</script>
+{% endif %}
+<script>
+    function mostrar_ocultar_empresa() {
+        let card_empresa = document.getElementById('contenedor_empresa');
+        let visualizacion_empresa = card_empresa.style.display;
+        if (visualizacion_empresa === 'none') {
+            card_empresa.style.display = 'block';
+        } else {
+            card_empresa.style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>

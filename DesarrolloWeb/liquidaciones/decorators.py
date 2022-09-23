@@ -24,8 +24,7 @@ def allowed_users(alloweds=[]):
                             messages.error(request, 'Primero debe seleccionar la empresa antes de trabajar con los modulos')
                             return redirect('inicio')
                         empresa_sesion = Empresa.objects.get(id_empresa = request.session['id_empresa'])
-                        messages.info(request, 'Usted esta trabajando para la empresa, {}'.format(empresa_sesion.nombre_empresa))
-                        return view_func(request, *args, **kwargs)
+                        return view_func(request, empresa_sesion, *args, **kwargs)
                     else:
                         continue
                 else:

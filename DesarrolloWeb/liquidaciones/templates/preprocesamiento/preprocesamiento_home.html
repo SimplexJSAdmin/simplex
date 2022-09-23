@@ -5,7 +5,7 @@
         <div class="card">
             <dv class="card-header">
                 <p class="text-center">En esta sección podra encontrar los preprocesamientos realizados para los diferentes periodos, tenga en cuenta que
-                    <strong>la plataforma no le permitirá cargar preprocesamientos previos al periodo actual: {{periodo_actual}}</strong></p>
+                    <strong>la plataforma no le permitirá cargar preprocesamientos previos al periodo actual: {{periodo_actual.cod}}</strong></p>
             </dv>
         </div>
         <p></p>
@@ -29,7 +29,6 @@
                 <th class="text-center">Periodo</th>
                 <th class="text-center">Estado del preprocesamiento</th>
                 <th class="text-center">Fecha</th>
-                <th class="text-center w-25">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -44,14 +43,7 @@
                 <td class="text-center">{{preprocesamiento.periodo}}</td>
                 <td class="text-center">{{preprocesamiento.estado}}</td>
                 <td class="text-center">{{preprocesamiento.fecha}}</td>
-                <td>
-                    <div class="row justify-content-center">
-                        <div class="col-md-2 p-0">
-                            <button class="btn btn-outline-success"><i class="fa-solid fa-keyboard"></i>Modificar
-                            </button>
-                        </div>
-                    </div>
-                </td>
+
             </tr>
             {% endfor %}
             </tbody>
