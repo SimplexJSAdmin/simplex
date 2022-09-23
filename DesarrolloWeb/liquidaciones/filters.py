@@ -26,6 +26,7 @@ class ReportePlanta(django_filters.FilterSet):
         exclude = ['id_empresa']        
 
 class ReporteLiquidaciones(django_filters.FilterSet):
+    radicado_liquidacion = django_filters.CharFilter(lookup_expr='icontains')
     class Meta:
         model = Liquidaciones
         field = '__all__'
