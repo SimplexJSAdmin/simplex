@@ -79,32 +79,11 @@ def obtener_reportes_final(request):
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
 def preprocesamiento_home(request):
-    estados_bloqueantes = ['subidos_archivos',
-                            'cargando_db',
-                            'generando_liquidaciones'
-                           ]
-
     context = {}
     periodo_actual = datetime.datetime.now().strftime('%Y-%m')
-    preprocesamiento_actual = Preprocesamiento.objects.filter(periodo_id=int(periodo_actual.replace('-', '')), empresa_id= request.session['id_empresa'])
-    if len(preprocesamiento_actual)>0:
-        preprocesamiento_actual = preprocesamiento_actual[0]
-        if preprocesamiento_actual.estado in estados_bloqueantes:
-            messages.warning(request, 'Actualmente se esta trabajando en el preprocesamiento del periodo {}'.format(periodo_actual))
-            context.update({'habilitar_carga': False})
-        elif preprocesamiento_actual.estado=='liquidacion_disponible':
-            messages.success(request, 'El procesamiento para el periodo actual ha finalizado, por favor dirigase a la seccion de liquidaciones para descargar el resultado final')
-            context.update({'habilitar_carga': False})
-        elif preprocesamiento_actual.estado == 'error_mi_planilla':
-            messages.error(request, 'El resultado del periodo actual no ha sido aprobado por mi planilla, vuelva a crear un preprocesamsiento porfavor')
-            context.update({'habilitar_carga':True})
-        elif preprocesamiento_actual.estado == 'exito_mi_planilla':
-            messages.success(request, 'Las liquidaciones se encuentran al dia')
-            context.update({'habilitar_carga': False})
-    else:
-        messages.success(request, 'Por favor cargue los archivos para preprocesar el periodo actual')
-        context.update({'habilitar_carga': True})
     context.update({'periodo_actual': periodo_actual})
+    preprocesamiento_actual = Preprocesamiento.objects.filter(periodo_id=int(periodo_actual.replace('-', '')), empresa_id= request.session['id_empresa'])
+    validar_preprocesamiento_actual(request, preprocesamiento_actual, context, messages)
     preprocesamientos_pendientes = Preprocesamiento.objects.filter(Q(estado='cargando_db') | Q(estado='subidos_archivos') | Q(estado='generando_liquidaciones'))
     preprocesamientos = Preprocesamiento.objects.filter(empresa_id=request.session['id_empresa'])
     context.update({'modules': get_modules(request), 'url_name': 'preprocesamiento'})
@@ -121,10 +100,17 @@ def preprocesamiento_home(request):
 @allowed_users(['preprocesamiento'])
 def preprocesamiento_crear(request):
     #TODO obtener preprocesamientos y validar resultados para permitir cargar archivos o no
-    periodo_actual = datetime.datetime.now().strftime('%Y%m')
-    periodo_modelo = Periodo.objects.filter(id_periodo=periodo_actual)
+    context = {}
+    periodo_actual = datetime.datetime.now().strftime('%Y-%m')
+    preprocesamiento_actual = Preprocesamiento.objects.filter(periodo_id=int(periodo_actual.replace('-', '')), empresa_id= request.session['id_empresa'])
+    if not validar_preprocesamiento_actual(request, preprocesamiento_actual, context, messages):
+        for message in messages.get_messages(request):
+            del(message)
+        return redirect('preprocesamiento')
+    else:
+        form = FileForm(request.POST or None)
     modules = get_modules(request)
-    return render(request, 'preprocesamiento/preprocesamiento_result.html', {'url_name':'preprocesamiento', 'modules':modules})
+    return render(request, 'preprocesamiento/preprocesamiento_result.html', {'url_name':'preprocesamiento', 'modules':modules, 'form':form})
 
 
 @login_required(login_url='login')

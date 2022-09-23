@@ -1,8 +1,10 @@
 {%  extends 'base.html' %}
 {% block section %}
 <div class="row justify-content-center pt-5">
-    {% for liquidacion in files %}
-        <h4>{{liquidacion}}Liq result</h4>
-    {% endfor %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Enviar</button>
+    </form>
 </div>
 {% endblock %}
