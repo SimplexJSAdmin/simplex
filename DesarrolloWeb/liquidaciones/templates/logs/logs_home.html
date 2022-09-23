@@ -1,30 +1,53 @@
 {%  extends 'base.html' %}
+{% load widget_tweaks %}
 {% block section %}
-<div class="row justify-content-center pt-2">
-<h3>Log de eventos</h3>
+<h2>Log de eventos</h2>
+<cite title="Source Title">En este modulo podrá realizar seguimiento a los movimientos realizados por cada usuario</cite>
 
-<div class="row pt-2">
-    <div class = "col">
-        <div class="card card-body">
-            <form method="get">
-                {{ myFilter.form }}
-                <div class="row pt-3"></div>
-                <button class="btn btn-primary" type="submit"> Buscar </button>
-            </form>
+<div class="row pt-3">
+<form method="get">
+    <div class="card text-bg-light">
+        <div class="card-header">Panel de filtros <i class="bi bi-funnel-fill"></i></div>
+        
+        <div class="card-body">
+        <div class="row">
+            <div class="form-group col-sm-4 col-md-3">
+                {{myFilter.form.user.label_tag}}
+                {% render_field myFilter.form.user class="form-control" %}
+            </div>
+            <div class="form-group col-sm-4 col-md-3">
+                {{myFilter.form.module.label_tag}}
+                {% render_field myFilter.form.module class="form-control" %}
+            </div>
+            <div class="form-group col-sm-4 col-md-3">
+                {{myFilter.form.log_date.label_tag}}
+                {% render_field myFilter.form.log_date class="form-control" %}
+            </div>
+            <div class="row pt-2">
+            <button class="btn btn-primary btn-sm" type="submit"> <i class="bi bi-search"></i> Buscar </button>
         </div>
     </div>
     </div>
-    
+    </div>
+</form>
+</div>
+
+
+
+
 
 <div class="row pt-5">
+<h5>Resultados</h5>
+<div class="table-responsive">
 <table class="table table-striped" id="table_logs">
-    <thead>
+    <thead class="table-dark">
         <tr>
             <th>id</th>
             <th>Descripción</th>
             <th>Módulo</th>
-            <th>Fecha / Hora</th>
-            <th>User Id</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Usuario</th>
         </tr>
     </thead>
     <tbody>
@@ -34,8 +57,9 @@
             <td>{{log.id}}</td>
             <td>{{log.descripcion}}</td>
             <td>{{log.module}}</td>
-            <td>{{log.fecha}}</td>
-            <td>{{log.user_id}}</td>
+            <td>{{log.fecha.date}}</td>
+            <td>{{log.fecha.time}}</td>
+            <td>{{log.user}}</td>
         </tr>
         {% endfor %}
         {% else %}
@@ -43,5 +67,6 @@
         {% endif %}
     </tbody>
 </table>
+</div>
 </div>
 {% endblock %}
