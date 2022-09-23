@@ -3,9 +3,9 @@
         "model": "liquidaciones.ParametrosAFP",
         "pk": 1,
         "fields":{
-            "nombre_parametro": "Cotización Pensión",
-            "porcentaje_descuento_empleado": 0.04,
-            "porcentaje_descuento_empresa": 0.12,
+            "nombre_parametro": "Cotización Fondo Solidaridad",
+            "porcentaje_descuento_empleado": 0.01,
+            "porcentaje_descuento_empresa": 0,
             "porcentaje_descuento_total": 0.16,
             "limite_inferior": 1,
             "limite_superior": 25    

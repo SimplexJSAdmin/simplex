@@ -1,8 +1,8 @@
 {%  extends 'base.html' %}
 {% block section %}
-<div class="row justify-content-center pt-5">
-    <h1>GENERANDO INFORME DE {{opcion}}</h1>
 
+<div class="row justify-content-center pt-3">
+    <h2>Reporte de {{tipo_reporte}}</h2>
     <div class="row pt-2">
         <div class = "col">
             <div class="card card-body">
@@ -15,38 +15,13 @@
         </div>
        </div>
 
-    <div class="row pt-5">
-        <table class="table table-striped" id="table_logs">
-            <thead>
-                <tr>
-                    <th>Periodo</th>
-                    <th>No_Personal</th>
-                    <th>Apellido_Nombre</th>
-                    <th>codigo_concepto</th>
-                    <th>desc_concepto</th>
-                    <th>cantidad</th>
-                    <th>importe</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if nominas %}
-                {% for nomina in nominas %}
-                <tr>
-                    <td>{{nomina.id_periodo}}</td>
-                    <td>{{nomina.no_personal}}</td>
-                    <td>{{nomina.apellido_nombre}}</td>
-                    <td>{{nomina.cod_concepto}}</td>
-                    <td>{{nomina.desc_concepto}}</td>
-                    <td>{{nomina.cantidad}}</td>
-                    <td>{{nomina.importe}}</td>
-                </tr>
-                {% endfor %}
-                {% else %}
-                <h1>No hay registros de Nómina</h1>
-                {% endif %}
-            </tbody>
-        </table>
-        </div>
+    {% if tipo_reporte == 'nomina' %}
+        {% include "reportes/tablas/nomina.html" %}
+    {% elif tipo_reporte == 'planta' %}
+        {% include "reportes/tablas/planta.html" %}
+    {% elif tipo_reporte == 'liquidaciones' %}
+        {% include "reportes/tablas/liquidaciones.html" %}
 
+    {% endif %}
 </div>
 {% endblock %}

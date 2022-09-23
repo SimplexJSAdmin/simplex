@@ -10,7 +10,7 @@ from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, Parametr
 from .forms import  *
 from .decorators import *
 from .functions import *
-from .filters import LogsFilter
+from .filters import LogsFilter, ReporteNomina, ReporteLiquidaciones, ReportePlanta
 
 
 @unauthenticated_user
@@ -56,9 +56,20 @@ def obtener_reportes_final(request):
     modules = get_modules(request)
     if request.method == 'POST':
         tipo_reporte = request.POST['tipo_reporte']
-        resultados = Nomina.objects.all()
-        myFilter = ReportFilter(request.GET, queryset=nomina)
-        nomina = myFilter.qs
+        if tipo_reporte == 'nomina':    
+            resultados = Nomina.objects.filter(empresa_id= request.session['id_empresa'])
+            myFilter = ReporteNomina(request.GET, queryset=resultados)
+            resultados = myFilter.qs
+        elif tipo_reporte == 'planta':
+            resultados = Planta.objects.filter(id_empresa= request.session['id_empresa'])
+            myFilter = ReportePlanta(request.GET, queryset=resultados)
+            resultados = myFilter.qs
+        elif tipo_reporte == 'liquidaciones':
+            resultados = Liquidaciones.objects.filter(id_empresa= request.session['id_empresa'])
+            myFilter = ReporteLiquidaciones(request.GET, queryset=resultados)
+            resultados = myFilter.qs
+        else:
+            pass
     else:
         return redirect('home_reportes')
     return render(request, 'reportes/resultado.html', {'tipo_reporte': tipo_reporte, 'modules': modules, 'url_name': 'reportes', 'resultados':resultados,'myFilter':myFilter})

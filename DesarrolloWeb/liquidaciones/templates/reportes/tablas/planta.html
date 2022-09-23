@@ -1,28 +1,79 @@
-<table class="table table-striped" id="table_logs">
-            <thead>
-            <tr>
-                <th>Periodo</th>
-                <th>No_Personal</th>
-                <th>Apellido_Nombre</th>
-                <th>codigo_concepto</th>
-                <th>desc_concepto</th>
-                <th>cantidad</th>
-                <th>importe</th>
-            </tr>
-            </thead>
-            <tbody>
+<div class="row pt-2 col-md-12">
+<div class="table-responsive">
+    <table class="table table-striped" id="table_planta">
+                <thead>
+                <tr>
+                    <th>id_empresa</th>
+                    <th>id_periodo</th>
+                    <th>no_personal</th>
+                    <th>primer_apellido</th>
+                    <th>segundo_apellido</th>
+                    <th>primer_nombre</th>
+                    <th>segundo_nombre</th>
+                    <th>tipo_documento</th>
+                    <th>documento</th>
+                    <th>division_persona</th>
+                    <th>denominacion_funcion</th>
+                    <th>und_tiempo_nomina</th>
+                    <th>cc</th>
+                    <th>cuenta_bancaria</th>
+                    <th>clase_contrato</th>
+                    <th>procedimiento_retencion</th>
+                    <th>porcentaje_retencion</th>
+                    <th>declarante_renta</th>
+                    <th>tiene_independientes</th>
+                    <th>importe</th>
+                    <th>moneda</th>
+                    <th>texto_breve</th>
+                    <th>correo_electronico</th>
+                    <th>centro_coste</th>
+                    <th>fecha</th>
+                    <th>grupo_personal</th>
+                    <th>clase</th>
+                    <th>desde</th>
+                    <th>denominacion_posicion</th>
+                    <th>denominacion_medicion</th>
 
-            {% for nomina in nominas %}
-            <tr>
-                <td>{{nomina.id_periodo}}</td>
-                <td>{{nomina.no_personal}}</td>
-                <td>{{nomina.apellido_nombre}}</td>
-                <td>{{nomina.cod_concepto}}</td>
-                <td>{{nomina.desc_concepto}}</td>
-                <td>{{nomina.cantidad}}</td>
-                <td>{{nomina.importe}}</td>
-            </tr>
-            {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
 
-            </tbody>
-        </table>
+                {% for registro in resultados %}
+                <tr>
+                    <td>{{registro.id_empresa}}</td>
+                    <td>{{registro.id_periodo}}</td>
+                    <td>{{registro.no_personal}}</td>
+                    <td>{{registro.primer_apellido}}</td>
+                    <td>{{registro.segundo_apellido}}</td>
+                    <td>{{registro.primer_nombre}}</td>
+                    <td>{{registro.segundo_nombre}}</td>
+                    <td>{{registro.tipo_documento}}</td>
+                    <td>{{registro.documento}}</td>
+                    <td>{{registro.division_persona}}</td>
+                    <td>{{registro.denominacion_funcion}}</td>
+                    <td>{{registro.und_tiempo_nomina}}</td>
+                    <td>{{registro.cc}}</td>
+                    <td>{{registro.cuenta_bancaria}}</td>
+                    <td>{{registro.clase_contrato}}</td>
+                    <td>{{registro.procedimiento_retencion}}</td>
+                    <td>{{registro.porcentaje_retencion}}</td>
+                    <td>{{registro.declarante_renta}}</td>
+                    <td>{{registro.tiene_independientes}}</td>
+                    <td>{{registro.importe}}</td>
+                    <td>{{registro.moneda}}</td>
+                    <td>{{registro.texto_breve}}</td>
+                    <td>{{registro.correo_electronico}}</td>
+                    <td>{{registro.centro_coste}}</td>
+                    <td>{{registro.fecha}}</td>
+                    <td>{{registro.grupo_personal}}</td>
+                    <td>{{registro.clase}}</td>
+                    <td>{{registro.desde}}</td>
+                    <td>{{registro.denominacion_posicion}}</td>
+                    <td>{{registro.denominacion_medicion}}</td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+    </table>
+</div>
+</div>  

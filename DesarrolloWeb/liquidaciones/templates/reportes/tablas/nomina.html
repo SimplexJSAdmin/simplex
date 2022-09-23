@@ -1,3 +1,5 @@
+<div class="row pt-2 col-md-12">
+    <div class="table-responsive">
 <table class="table table-striped" id="table_logs">
             <thead>
             <tr>
@@ -12,17 +14,19 @@
             </thead>
             <tbody>
 
-            {% for registro in resultado %}
+            {% for registro in resultados %}
             <tr>
-                <td>{{nomina.id_periodo}}</td>
-                <td>{{nomina.no_personal}}</td>
-                <td>{{nomina.apellido_nombre}}</td>
-                <td>{{nomina.cod_concepto}}</td>
-                <td>{{nomina.desc_concepto}}</td>
-                <td>{{nomina.cantidad}}</td>
-                <td>{{nomina.importe}}</td>
+                <td>{{registro.id_periodo}}</td>
+                <td>{{registro.no_personal}}</td>
+                <td>{{registro.apellido_nombre}}</td>
+                <td>{{registro.cod_concepto}}</td>
+                <td>{{registro.desc_concepto}}</td>
+                <td>{{registro.cantidad}}</td>
+                <td>{{registro.importe}}</td>
             </tr>
             {% endfor %}
-
             </tbody>
         </table>
+
+        </div>
+</div>
