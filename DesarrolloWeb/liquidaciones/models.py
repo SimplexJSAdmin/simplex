@@ -315,7 +315,7 @@ class Liquidaciones(models.Model):
 
 class Log(models.Model):
     #TODO: terminar de incluir modulos disponibless
-    modulos_disponibles = [('preprocesado', 'Preprocesado'), ('conceptos', 'Conceptos')]
+    modulos_disponibles = [('preprocesado', 'Preprocesado'), ('conceptos', 'Conceptos'), ('parametros','Parametros'),('liquidaciones','Liquidaciones'),('empresas','Empresas')]
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -341,3 +341,9 @@ class Preprocesamiento(models.Model):
     periodo = models.ForeignKey(Periodo, on_delete=models.CASCADE)
     estado = models.CharField(choices=estados, max_length=35)
     fecha = models.DateTimeField()
+
+class ParametrosGlobales():
+    id = models.AutoField(primary_key=True)
+    descripcion = models.CharField(max_length=100)
+    valor = models.FloatField()
+    unidad_medida = models.CharField(max_length=30)
