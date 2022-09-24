@@ -1,0 +1,42 @@
+[
+    {
+        "model": "liquidaciones.ParametrosGlobales",
+        "pk": 1,
+        "fields":{
+            "descripcion": "SMMLV",
+            "valor": 1000000,
+            "unidad_medida": "Pesos - COP" 
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosGlobales",
+        "pk": 2,
+        "fields":{
+            "descripcion": "Base cotización salario integral",
+            "valor": 0.7,
+            "unidad_medida": "Porcentaje" 
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosGlobales",
+        "pk": 3,
+        "fields":{
+            "descripcion": "Salario Integral",
+            "valor": 10,
+            "unidad_medida": "SMMLV" 
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosGlobales",
+        "pk": 4,
+        "fields":{
+            "descripcion": "Porcentaje pagos no salariales",
+            "valor": 0.4,
+            "unidad_medida": "Porcentaje" 
+        }
+    }
+]
+

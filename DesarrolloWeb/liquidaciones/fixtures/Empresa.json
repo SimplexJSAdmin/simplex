@@ -3,14 +3,16 @@
     "model": "liquidaciones.empresa",
     "pk": 1,
     "fields": {
-      "nombre_empresa": "Avianca"
+      "nombre_empresa": "Avianca",
+      "aplica_exoneracion": "True"
     }
   },
    {
     "model": "liquidaciones.empresa",
     "pk": 2,
     "fields": {
-      "nombre_empresa": "Empresa 2"
+      "nombre_empresa": "Empresa 2",
+      "aplica_exoneracion": "False"
     }
   }
 ]
