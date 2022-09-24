@@ -11,7 +11,7 @@
                     {% csrf_token %}
                     <div class="row">
                         {% for field in myFilter.form %}
-                        <div class="form-group col-sm-4 col-md-3">
+                        <div class="form-group col-sm-4 col-md-3 p-1">
                             {{field.label_tag}}
                             {% render_field field class="form-control" %}
                         </div>
