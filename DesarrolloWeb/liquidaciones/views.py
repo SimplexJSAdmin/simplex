@@ -51,7 +51,7 @@ def obtener_reportes_opciones(request, empresa_sesion):
     except:
         print('no se habia creado tipo de reporte')
     modules = get_modules(request)
-    opciones_reporte = {'nomina': 'Nómina', 'planta': 'Planta', 'liquidaciones': 'Liquidaciones'}
+    opciones_reporte = {'nomina': 'Nómina', 'planta': 'Planta', 'liquidaciones': 'Liquidaciones', 'medios_magneticos':'MediosMagneticos'}
     return render(request, 'reportes/obtener_reportes.html',
                   {'opciones': opciones_reporte, 'modules': modules, 'url_name': 'reportes',
                    'empresa_seleccionada': empresa_sesion})

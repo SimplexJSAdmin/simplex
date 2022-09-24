@@ -3,12 +3,91 @@
         "model": "liquidaciones.ParametrosAFP",
         "pk": 1,
         "fields":{
-            "nombre_parametro": "Cotización Fondo Solidaridad",
+            "nombre_parametro": "Cotización Fondo Solidaridad 1",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0,
+            "porcentaje_descuento_total": 0,
+            "limite_inferior": 0,
+            "limite_superior": 4   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosAFP",
+        "pk": 2,
+        "fields":{
+            "nombre_parametro": "Cotización Fondo Solidaridad 2",
             "porcentaje_descuento_empleado": 0.01,
             "porcentaje_descuento_empresa": 0,
-            "porcentaje_descuento_total": 0.16,
-            "limite_inferior": 1,
-            "limite_superior": 25    
+            "porcentaje_descuento_total": 0.01,
+            "limite_inferior": 4,
+            "limite_superior": 16   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosAFP",
+        "pk": 3,
+        "fields":{
+            "nombre_parametro": "Cotización Fondo Solidaridad 3",
+            "porcentaje_descuento_empleado": 0.012,
+            "porcentaje_descuento_empresa": 0,
+            "porcentaje_descuento_total": 0.012,
+            "limite_inferior": 16,
+            "limite_superior": 17   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosAFP",
+        "pk": 4,
+        "fields":{
+            "nombre_parametro": "Cotización Fondo Solidaridad 4",
+            "porcentaje_descuento_empleado": 0.014,
+            "porcentaje_descuento_empresa": 0,
+            "porcentaje_descuento_total": 0.014,
+            "limite_inferior": 17,
+            "limite_superior": 18   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosAFP",
+        "pk": 5,
+        "fields":{
+            "nombre_parametro": "Cotización Fondo Solidaridad 5",
+            "porcentaje_descuento_empleado": 0.016,
+            "porcentaje_descuento_empresa": 0,
+            "porcentaje_descuento_total": 0.016,
+            "limite_inferior": 18,
+            "limite_superior": 19   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosAFP",
+        "pk": 6,
+        "fields":{
+            "nombre_parametro": "Cotización Fondo Solidaridad 6",
+            "porcentaje_descuento_empleado": 0.018,
+            "porcentaje_descuento_empresa": 0,
+            "porcentaje_descuento_total": 0.018,
+            "limite_inferior": 19,
+            "limite_superior": 20   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosAFP",
+        "pk": 7,
+        "fields":{
+            "nombre_parametro": "Cotización Fondo Solidaridad 7",
+            "porcentaje_descuento_empleado": 0.02,
+            "porcentaje_descuento_empresa": 0,
+            "porcentaje_descuento_total": 0.02,
+            "limite_inferior": 20,
+            "limite_superior": 25   
         }
     }
+
 ]

@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Empresa(models.Model):
     id_empresa = models.AutoField(primary_key=True)
     nombre_empresa = models.CharField(max_length=75, verbose_name='Nombre de la empresa')
+    aplica_exoneracion = models.BooleanField()
 
     def __str__(self):
         string_to_show = '{}'.format(self.nombre_empresa)
@@ -342,7 +343,7 @@ class Preprocesamiento(models.Model):
     estado = models.CharField(choices=estados, max_length=35)
     fecha = models.DateTimeField()
 
-class ParametrosGlobales():
+class ParametrosGlobales(models.Model):
     id = models.AutoField(primary_key=True)
     descripcion = models.CharField(max_length=100)
     valor = models.FloatField()

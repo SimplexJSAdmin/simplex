@@ -1,0 +1,28 @@
+[
+    {
+        "model": "liquidaciones.ParametrosSENA",
+        "pk": 1,
+        "fields":{
+            "nombre_parametro": "SENA 1",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0,
+            "porcentaje_descuento_total": 0,
+            "limite_inferior": 0,
+            "limite_superior": 10   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosSENA",
+        "pk": 2,
+        "fields":{
+            "nombre_parametro": "SENA 2",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0.02,
+            "porcentaje_descuento_total": 0.02,
+            "limite_inferior": 10,
+            "limite_superior": 0   
+        }
+    }
+
+]

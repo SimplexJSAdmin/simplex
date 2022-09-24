@@ -6,7 +6,9 @@
     <h2>Reporte de {{tipo_reporte}}</h2>
     <div class="row pt-2">
         <div class="col">
-            <div class="">
+            <div class="card text-bg-light">
+                <div class="card-header">Panel de filtros <i class="bi bi-funnel-fill"></i></div>
+                <div class="card-body">
                 <form method="post" class="col mb-3">
                     {% csrf_token %}
                     <div class="row">
@@ -18,8 +20,9 @@
                         {% endfor %}
                     </div>
                     <div class="row pt-3"></div>
-                    <button class="btn btn-primary" type="submit"> Buscar</button>
+                    <button clas    s="btn btn-primary" type="submit"><i class="bi bi-search"></i> Buscar</button>
                 </form>
+            </div>
             </div>
         </div>
     </div>

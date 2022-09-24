@@ -1,0 +1,13 @@
+[
+    {
+        "model": "liquidaciones.ParametrosICBF",
+        "pk": 1,
+        "fields":{
+            "nombre_parametro": "Caja de compensación",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0.04,
+            "porcentaje_descuento_total": 0.04
+        }
+    }
+
+]

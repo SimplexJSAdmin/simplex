@@ -7,8 +7,8 @@
             "porcentaje_descuento_empleado": 0.04,
             "porcentaje_descuento_empresa": 0.12,
             "porcentaje_descuento_total": 0.16,
-            "limite_inferior": 1,
-            "limite_superior": 25    
+            "limite_inferior": 0,
+            "limite_superior": 0    
         }
     }
 ]

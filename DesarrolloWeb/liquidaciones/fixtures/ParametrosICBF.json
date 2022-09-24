@@ -1,0 +1,28 @@
+[
+    {
+        "model": "liquidaciones.ParametrosICBF",
+        "pk": 1,
+        "fields":{
+            "nombre_parametro": "ICBF 1",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0,
+            "porcentaje_descuento_total": 0,
+            "limite_inferior": 0,
+            "limite_superior": 10   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosICBF",
+        "pk": 2,
+        "fields":{
+            "nombre_parametro": "ICBF 2",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0.03,
+            "porcentaje_descuento_total": 0.03,
+            "limite_inferior": 10,
+            "limite_superior": 0   
+        }
+    }
+
+]
