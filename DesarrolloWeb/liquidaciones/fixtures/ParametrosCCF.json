@@ -1,6 +1,6 @@
 [
     {
-        "model": "liquidaciones.ParametrosICBF",
+        "model": "liquidaciones.ParametrosCAJA",
         "pk": 1,
         "fields":{
             "nombre_parametro": "Caja de compensación",

@@ -1,6 +1,6 @@
 [
     {
-        "model": "liquidaciones.ParametrosAFP",
+        "model": "liquidaciones.ParametrosFSP",
         "pk": 1,
         "fields":{
             "nombre_parametro": "Cotización Fondo Solidaridad 1",
@@ -13,7 +13,7 @@
     },
 
     {
-        "model": "liquidaciones.ParametrosAFP",
+        "model": "liquidaciones.ParametrosFSP",
         "pk": 2,
         "fields":{
             "nombre_parametro": "Cotización Fondo Solidaridad 2",
@@ -26,7 +26,7 @@
     },
 
     {
-        "model": "liquidaciones.ParametrosAFP",
+        "model": "liquidaciones.ParametrosFSP",
         "pk": 3,
         "fields":{
             "nombre_parametro": "Cotización Fondo Solidaridad 3",
@@ -39,7 +39,7 @@
     },
 
     {
-        "model": "liquidaciones.ParametrosAFP",
+        "model": "liquidaciones.ParametrosFSP",
         "pk": 4,
         "fields":{
             "nombre_parametro": "Cotización Fondo Solidaridad 4",
@@ -52,7 +52,7 @@
     },
 
     {
-        "model": "liquidaciones.ParametrosAFP",
+        "model": "liquidaciones.ParametrosFSP",
         "pk": 5,
         "fields":{
             "nombre_parametro": "Cotización Fondo Solidaridad 5",
@@ -65,7 +65,7 @@
     },
 
     {
-        "model": "liquidaciones.ParametrosAFP",
+        "model": "liquidaciones.ParametrosFSP",
         "pk": 6,
         "fields":{
             "nombre_parametro": "Cotización Fondo Solidaridad 6",
@@ -78,7 +78,7 @@
     },
 
     {
-        "model": "liquidaciones.ParametrosAFP",
+        "model": "liquidaciones.ParametrosFSP",
         "pk": 7,
         "fields":{
             "nombre_parametro": "Cotización Fondo Solidaridad 7",
