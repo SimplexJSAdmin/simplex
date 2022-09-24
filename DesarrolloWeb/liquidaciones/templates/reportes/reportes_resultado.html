@@ -1,0 +1,36 @@
+{%  extends 'base.html' %}
+{% load widget_tweaks %}
+{% block section %}
+
+<div class="row justify-content-center pt-3">
+    <h2>Reporte de {{tipo_reporte}}</h2>
+    <div class="row pt-2">
+        <div class="col">
+            <div class="">
+                <form method="post" class="col mb-3">
+                    {% csrf_token %}
+                    <div class="row">
+                        {% for field in myFilter.form %}
+                        <div class="form-group col-sm-4 col-md-3">
+                            {{field.label_tag}}
+                            {% render_field field class="form-control" %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row pt-3"></div>
+                    <button class="btn btn-primary" type="submit"> Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if tipo_reporte == 'nomina' %}
+    {% include "reportes/tablas/nomina.html" %}
+    {% elif tipo_reporte == 'planta' %}
+    {% include "reportes/tablas/planta.html" %}
+    {% elif tipo_reporte == 'liquidaciones' %}
+    {% include "reportes/tablas/liquidaciones.html" %}
+
+    {% endif %}
+</div>
+{% endblock %}
