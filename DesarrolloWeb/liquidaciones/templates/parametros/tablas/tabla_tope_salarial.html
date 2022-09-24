@@ -1,16 +1,17 @@
 <div class="card-body">
     <h5 class="card-title">Conceptos por {{parameter_type|upper}} disponibles</h5>
-    <table class="table table-bordered border-info">
-        <thead>
-        <tr class="table-primary">
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
             <th class="text-center">Id</th>
             <th class="text-center">Nombre</th>
-            <th class="text-center">Porcentaje descuento empleado</th>
-            <th class="text-center">Porcentaje descuento empresa</th>
-            <th class="text-center">Porcentaje descuento total</th>
+            <th class="text-center">&#37 Empleado</th>
+            <th class="text-center">&#37 Empresa</th>
+            <th class="text-center">&#37 Total</th>
             <th class="text-center">Limite inferior SMMLV</th>
             <th class="text-center">Limite superior SMML</th>
-            <th class="text-center w-25">Acciones</th>
+            <th class="text-center w-25">Acción</th>
         </tr>
         </thead>
         <tbody>
@@ -26,7 +27,7 @@
             <td>
                 <div class="row justify-content-center">
                     <div class="col-md-2 p-0">
-                        <button class="btn btn-outline-success"><i class="fa-solid fa-keyboard"></i>Modificar</button>
+                        <button type="button" class="btn btn-success btn-sm"><i class="fa-solid fa-keyboard"></i> Modificar</button>
                     </div>
                 </div>
             </td>
@@ -34,4 +35,5 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 </div>
