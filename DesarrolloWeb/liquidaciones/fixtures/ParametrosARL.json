@@ -1,0 +1,61 @@
+[
+    {
+        "model": "liquidaciones.ParametrosARL",
+        "pk": 1,
+        "fields":{
+            "nombre_parametro": "Riesgo I",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0.00522,
+            "porcentaje_descuento_total": 0.00522,
+            "nivel_riesgo": 1   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosARL",
+        "pk": 2,
+        "fields":{
+            "nombre_parametro": "Riesgo II",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0.01044,
+            "porcentaje_descuento_total": 0.01044,
+            "nivel_riesgo": 2   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosARL",
+        "pk": 3,
+        "fields":{
+            "nombre_parametro": "Riesgo III",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0.02436,
+            "porcentaje_descuento_total": 0.02436,
+            "nivel_riesgo": 3   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosARL",
+        "pk": 4,
+        "fields":{
+            "nombre_parametro": "Riesgo IV",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0.04350,
+            "porcentaje_descuento_total": 0.04350,
+            "nivel_riesgo": 4   
+        }
+    },
+
+    {
+        "model": "liquidaciones.ParametrosARL",
+        "pk": 5,
+        "fields":{
+            "nombre_parametro": "Riesgo V",
+            "porcentaje_descuento_empleado": 0,
+            "porcentaje_descuento_empresa": 0.06960,
+            "porcentaje_descuento_total": 0.06960,
+            "nivel_riesgo": 5   
+        }
+    }
+]
