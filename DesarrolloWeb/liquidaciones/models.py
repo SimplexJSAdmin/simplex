@@ -1,4 +1,5 @@
 from pyexpat import model
+from statistics import mode
 from django.db import models
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
@@ -128,20 +129,15 @@ class ParametrosCAJA(models.Model):
     porcentaje_descuento_empresa = models.FloatField(verbose_name='Porcentaje de descuento para la empresa')
     porcentaje_descuento_total = models.FloatField(verbose_name='Porcentaje de descuento total')
 
-
-class EPS(models.Model):
+class EntidadesSG(models.Model):
+    tipos_entidad = [('eps','EPS'),('afp','AFP'),('ccf','CCF')]
     id = models.AutoField(primary_key=True)
-    cod_miplanilla = models.IntegerField()
-
-
-class FondoPension(models.Model):
-    id = models.AutoField(primary_key=True)
-    cod_miplanilla = models.IntegerField()
-
-
-class ARL(models.Model):
-    id = models.AutoField(primary_key=True)
-    cod_miplanilla = models.IntegerField()
+    cod_miplanilla = models.CharField(max_length=30)
+    nit = models.CharField(max_length=30)
+    dv = models.CharField(max_length=1)
+    razon_social = models.CharField(max_length=100)
+    ciudad = models.CharField(max_length=30)
+    tipo_entidad = models.CharField(choices=tipos_entidad, max_length=30)
 
 
 class Planta(models.Model):

@@ -1,0 +1,39 @@
+[
+    {
+        "model":"liquidaciones.EntidadesSG",
+        "pk": 1,
+        "fields":{
+            "cod_miplanilla": "01",
+            "nit": "800640362",
+            "dv": "7",
+            "razon_social": "EPS Prueba",
+            "ciudad": "Bogotá",
+            "tipo_entidad": "EPS"
+        }
+    },
+
+    {
+        "model":"liquidaciones.EntidadesSG",
+        "pk": 2,
+        "fields":{
+            "cod_miplanilla": "01",
+            "nit": "800640363",
+            "dv": "7",
+            "razon_social": "AFP Prueba",
+            "ciudad": "Medellín",
+            "tipo_entidad": "AFP"
+        }
+    },
+    {
+        "model":"liquidaciones.EntidadesSG",
+        "pk": 3,
+        "fields":{
+            "cod_miplanilla": "01",
+            "nit": "800640364",
+            "dv": "7",
+            "razon_social": "CCF Prueba",
+            "ciudad": "Bogotá",
+            "tipo_entidad": "CCF"
+        }
+    }
+]
