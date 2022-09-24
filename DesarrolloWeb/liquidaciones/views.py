@@ -123,31 +123,47 @@ def preprocesamiento_crear(request, empresa_sesion):
     modules = get_modules(request)
     context = {'url_name': 'preprocesamiento', 'modules': modules, 'empresa_seleccionada': empresa_sesion}
     periodo_actual = get_periodo_actual()
-    preprocesamientos_pendientes = Preprocesamiento.objects.filter(
-        Q(estado='cargando_db') | Q(estado='subidos_archivos') | Q(estado='generando_liquidaciones'))
-    if (block_load_file(preprocesamientos_pendientes)):
-        return redirect('preprocesamiento')
-    else:
 
-        preprocesamiento_actual = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
-                                                                  empresa_id=request.session['id_empresa'])
-        if not validar_preprocesamiento_actual(request, preprocesamiento_actual, context, messages):
+    if request.method == 'POST':
+        periodo = Periodo.objects.filter(id_periodo=periodo_actual['cod'])
+        if len(periodo) == 0:
+            periodo_nuevo = Periodo(id_periodo=periodo_actual['cod'], mes_periodo=periodo_actual['month'],
+                                    year_periodo=periodo_actual['year'])
+            periodo_nuevo.save()
+        else:
+            preprocesamiento = Preprocesamiento()
+            preprocesamiento.user = request.user
+            preprocesamiento.empresa = Empresa.objects.get(id_empresa=request.session['id_empresa'])
+            preprocesamiento.planta = request.FILES['planta']
+            preprocesamiento.nomina = request.FILES['nomina']
+            preprocesamiento.novedades = request.FILES['novedades']
+            preprocesamiento.periodo = Periodo.objects.get(id_periodo=periodo_actual['cod'])
+            preprocesamiento.estado = 'subidos_archivos'
+            preprocesamiento.fecha = datetime.datetime.now()
+            preprocesamiento.save()
+            return redirect('preprocesamiento')
+    else:
+        preprocesamientos_pendientes = Preprocesamiento.objects.filter(
+            Q(estado='cargando_db') | Q(estado='subidos_archivos') | Q(estado='generando_liquidaciones'))
+        if (block_load_file(preprocesamientos_pendientes)):
             return redirect('preprocesamiento')
         else:
-            form = FileForm(request.POST or None)
-            periodo = Periodo.objects.filter(id_periodo=periodo_actual['cod'])
-            if len(periodo) == 0:
-                # CREAR PERIODO
-                periodo_nuevo = Periodo(id_periodo=periodo_actual['cod'], mes_periodo=periodo_actual['month'],
-                                        year_periodo=periodo_actual['year'])
-                # periodo_nuevo.save()
-                print(periodo_nuevo)
+            preprocesamiento_actual = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
+                                                                      empresa_id=request.session['id_empresa'])
+            preprocesamiento_actual_validado = validar_preprocesamiento_actual(request, preprocesamiento_actual, context, messages)
+            if not preprocesamiento_actual_validado:
+                return redirect('preprocesamiento')
             else:
-                pass
-                # BORRAR Y VOLVER A CREAR PROCESAMIENTO
-            print(periodo)
-        context.update({'form': form})
-        return render(request, 'preprocesamiento/preprocesamiento_result.html', context)
+                form = FileForm(request.POST or None)
+                if preprocesamiento_actual_validado['accion'] == 'crear':
+                    context.update({'accion':'creando', 'form':form})
+                    return render(request, 'preprocesamiento/preprocesamiento_result.html', context)
+
+                else:
+                    context.update({'accion': 'recargando', 'form': form})
+                    return render(request, 'preprocesamiento/preprocesamiento_result.html', context)
+            context.update({'form': form})
+            return render(request, 'preprocesamiento/preprocesamiento_result.html', context)
 
 
 @login_required(login_url='login')

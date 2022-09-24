@@ -15,4 +15,4 @@ class ConceptoInternoForm(forms.ModelForm):
 class FileForm(forms.ModelForm):
     class Meta:
         model = Preprocesamiento
-        fields = '__all__'
+        fields = ['nomina', 'novedades', 'planta']

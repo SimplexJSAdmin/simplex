@@ -25,27 +25,30 @@ def validar_preprocesamiento_actual(request, preprocesamiento_actual, context, m
         preprocesamiento_actual = preprocesamiento_actual[0]
         if preprocesamiento_actual.estado in estados_bloqueantes:
             context.update({'habilitar_carga': False, 'swal_alert': {
-                'message': 'Actualmente se esta trabajando en el preprocesamiento del periodo {}'.format(
+                'message': 'El servidor se encuentra ocupado trabajando en el periodo: {}'.format(
                     periodo_actual), 'icon_name': 'warning'}})
             return False
         elif preprocesamiento_actual.estado == 'liquidacion_disponible':
-            messages.success(request,
-                             'El procesamiento para el periodo actual ha finalizado, por favor dirigase a la seccion de liquidaciones para descargar el resultado final')
-            context.update({'habilitar_carga': False})
+            context.update({'habilitar_carga': False, 'swal_alert': {
+                'message': 'El procesamiento para el periodo actual ha finalizado, por favor dirigase a la seccion de liquidaciones para descargar el resultado final', 'icon_name': 'success'}})
             return False
         elif preprocesamiento_actual.estado == 'error_mi_planilla':
-            messages.error(request,
-                           'El resultado del periodo actual no ha sido aprobado por mi planilla, vuelva a crear un preprocesamsiento porfavor')
-            context.update({'habilitar_carga': True})
-            return True
+            context.update({'habilitar_carga': True, 'swal_alert':{
+                'message':'El resultado del periodo actual no ha sido aprobado por mi planilla, vuelva a crear un preprocesamsiento por favor',
+                'icon_name': 'error'
+            }})
+            return {'resul':True, 'accion':'actualizar'}
         elif preprocesamiento_actual.estado == 'exito_mi_planilla':
-            messages.success(request, 'Las liquidaciones se encuentran al dia')
-            context.update({'habilitar_carga': False})
+            context.update({'habilitar_carga': False, 'swal_alert':{
+                'message': 'Las liquidaciones se encuentran al dia',
+                'icon_name': 'success'
+            }})
             return False
     else:
         context.update({'habilitar_carga': True, 'swal_alert': {
-            'message': 'Para el periodo actual no se han creado preprocesamientos', 'icon_name': 'success'}})
-        return True
+            'message': 'Para el periodo actual no se han creado preprocesamientos, por favor cree uno',
+            'icon_name': 'success'}})
+        return {'resul':True, 'accion':'crear'}
 
 
 def get_periodo_actual():
