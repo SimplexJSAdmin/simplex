@@ -25,6 +25,8 @@ services:
       - POSTGRES_PASSWORD=postgres
       - DOMAIN_BACK_1=http://172.21.0.4
       - DOMAIN_BACK_2=http://172.21.0.3
+      - ROOT_USER_BACK_2=root1
+      - ROOT_PASSWORD_BACK_2=root1
     depends_on:
       - db
   back2:

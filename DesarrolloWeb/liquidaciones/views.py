@@ -164,17 +164,34 @@ def preprocesamiento_crear(request, empresa_sesion):
                 preprocesamiento.estado = 'subidos_archivos'
                 preprocesamiento.fecha = datetime.datetime.now()
                 preprocesamiento.save()
+                """ INICIO DE CARGA ARCHVOS A BACK 2"""
                 preprocesamiento_generado = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
                                                                   empresa_id=request.session['id_empresa'])[0]
-                url_back_2 = os.environ.get('DOMAIN_BACK_2')+':8001/home/'
-                print(url_back_2)
-                planta_file = open('media/'+str(preprocesamiento_generado.planta), 'rb')
+                url_back_2 = os.environ.get('DOMAIN_BACK_2')+':8001'
+                url_login_back_2 = url_back_2+'/login/'
                 cliente = requests.Session()
-                res_1 = cliente.get(url_back_2)
-                print(res_1)
-                #csrf_token = cliente.cookies['csrftoken']
-                response = requests.post(url_back_2, files={'planta': planta_file,  'csrfmiddlewaretoken':'csrf_token'})
-                print(response)
+                cliente.get(url_login_back_2)
+                csrf_token = cliente.cookies['csrftoken']
+                login_data = {
+                          'user': os.environ.get('ROOT_USER_BACK_2'),
+                          'passwd': os.environ.get('ROOT_PASSWORD_BACK_2'),
+                          'csrfmiddlewaretoken': csrf_token
+                            }
+                result_login = cliente.post(url_login_back_2, data=login_data)
+                print(result_login.text)
+                planta_file = open('media/'+str(preprocesamiento_generado.planta), 'rb')
+                nomina_file = open('media/'+str(preprocesamiento_generado.nomina), 'rb')
+                novedades_file = open('media/'+str(preprocesamiento_generado.novedades), 'rb')
+                cliente.get(url_back_2+'/home/')
+                csrf_token = cliente.cookies['csrftoken']
+                response = cliente.post(url_back_2+'/home/',
+                                        files={
+                                            'planta': planta_file,
+                                            'nomina': nomina_file,
+                                            'novedades': novedades_file
+                                               },
+                                        data={'csrfmiddlewaretoken':csrf_token})
+                print(response.text)
                 return redirect('preprocesamiento')
         else:
             preprocesamiento_actual[0].user = request.user
