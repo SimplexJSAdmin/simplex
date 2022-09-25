@@ -23,6 +23,8 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - DOMAIN_BACK_1=http://172.21.0.4
+      - DOMAIN_BACK_2=http://172.21.0.3
     depends_on:
       - db
   back2:
@@ -36,6 +38,8 @@ services:
     - POSTGRES_NAME=postgres
     - POSTGRES_USER=postgres
     - POSTGRES_PASSWORD=postgres
+    - DOMAIN_BACK_1=http://172.21.0.4:8000
+    - DOMAIN_BACK_2=http://172.21.0.3:8001
     depends_on:
       - db
 

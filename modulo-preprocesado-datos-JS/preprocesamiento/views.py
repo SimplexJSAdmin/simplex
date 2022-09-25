@@ -9,15 +9,12 @@ import pandas as pd
 def home(request):
     #TODO: Primero guardar el log de back2 ocupado
     #TODO: Establecer logica para cargar los archivos
-    response = requests.get('http://localhost:8000/app/login')
-    return HttpResponse(response)
-    file_nomina = ()
-    file_planta = ()
-    file_novedades = ()
-    logs = Log.objects.all()
-    empresas = Empresa.objects.all()
-    #TODO: Al finalizar escribir log de proceso finalizado
-    return render(request, 'empresa_prueba.html', {'empresas':logs})
+    if request.method == 'POST':
+       planta = request.FILES['planta']
+       print(planta)
+    return HttpResponse('inicio')
+
+
 
 def cargar(request, periodo, empresa):
     cliente = login()

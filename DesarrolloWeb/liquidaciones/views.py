@@ -1,5 +1,4 @@
-import re
-import datetime
+import re, os
 import requests
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -90,8 +89,10 @@ def obtener_reportes_final(request, empresa_sesion):
     context.update({'modules': modules, 'url_name': 'reportes', 'empresa_seleccionada': empresa_sesion})
     return render(request, 'reportes/reportes_resultado.html', context)
 
-"""Inicio de vistas prepocesamiento"""
 
+
+
+"""Inicio de vistas prepocesamiento"""
 
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
@@ -163,7 +164,18 @@ def preprocesamiento_crear(request, empresa_sesion):
                 preprocesamiento.estado = 'subidos_archivos'
                 preprocesamiento.fecha = datetime.datetime.now()
                 preprocesamiento.save()
-                return redirect('preprocesamiento_cargar')
+                preprocesamiento_generado = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
+                                                                  empresa_id=request.session['id_empresa'])[0]
+                url_back_2 = os.environ.get('DOMAIN_BACK_2')+':8001/home/'
+                print(url_back_2)
+                planta_file = open('media/'+str(preprocesamiento_generado.planta), 'rb')
+                cliente = requests.Session()
+                res_1 = cliente.get(url_back_2)
+                print(res_1)
+                csrf_token = cliente.cookies['csrftoken']
+                response = requests.post(url_back_2, files={'planta': planta_file,  'csrfmiddlewaretoken':csrf_token})
+                print(response)
+                return redirect('preprocesamiento')
         else:
             preprocesamiento_actual[0].user = request.user
             preprocesamiento_actual[0].empresa = Empresa.objects.get(id_empresa=request.session['id_empresa'])

@@ -1,5 +1,4 @@
-import datetime
-import requests
+import datetime, requests, os
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
@@ -11,14 +10,11 @@ def login():
     adapter = HTTPAdapter(max_retries=retry)
     client.mount('http://', adapter)
     client.mount('https://', adapter)
-
-    #TODO definir como variables de entorno
-
-    response_1 = client.get('http://172.21.0.4:8000/app/login',  timeout=11)
+    response_1 = client.get(os.environ.get('DOMAIN_BACK_1')+'/app/login',  timeout=11)
     print('Response1:',"-"*15,response_1)
     csrf_token = client.cookies['csrftoken']
     login_data = {'username':'root', 'pass':'root', 'csrfmiddlewaretoken':csrf_token}
-    r1 = client.post('http://172.21.0.4:8000/app/login', data=login_data,  timeout=10)
+    r1 = client.post(os.environ.get('DOMAIN_BACK_1')+'/app/login', data=login_data,  timeout=10)
     return client
 
 def logout(client):
