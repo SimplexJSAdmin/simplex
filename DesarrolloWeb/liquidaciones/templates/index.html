@@ -4,47 +4,72 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <p class="text-info">Bienvenido a la plataforma Sicard para la gestión de seguridad social.</p>
+                    <h5 class="text-center"><strong>Bienvenido a la plataforma Sicard para la gestión de seguridad social.
+                    <br>GPS</strong></h5>             
                 </div>
                 <div class="card-body">
                     Señor usuario, por favor seleccione la empresa con la cual va a interacturar durante su navegación en esta plataforma.
                 </div>
-                <div class="card-footer"></div>
+                    <div class="col-md-6">
+                        <div class="row align-items-center">
+                                {% if empresas_permitidas %}
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <div class="row form-group">
+                                        <div class="col-md-8">
+                                            <label for="">Seleccione la empresa</label>
+                                            <select name="empresa_plataforma" id="empresa_plataforma" class="form-control">
+                                                {% for empresa in empresas_permitidas %}
+                                                <option value="{{empresa.id_empresa_id}}">{{empresa.id_empresa}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 justify-content-md-center">
+                                    <div class="row pt-2 justify-content-md-center">
+                                        <button class="btn btn-primary" type="submit"><i class="bi bi-check-circle"></i> Seleccionar</button>
+                                    </div>
+                                </div>
+                                </form>
+                                {% endif %}
+                                {% if not empresas_permitidas %}
+                                    <div class="alert alert-danger">
+                                        No hay empresas habilitadas para usted, por favor verifique con el administrador
+                                    </div>
+                                {% endif %}
+                        </div>
+                    </div>
             </div>
         </div>
 
-        <div class="row pt-3 justify-content-md-center">
-        <div class="col-md-6">
-            <div class="row align-items-center">
-                <div class="col-md-12">
-                    {% if empresas_permitidas %}
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <div class="row align-items-center">
-                            <div class="col-md-8">
-                                <label for="">Seleccione la empresa</label>
-                                <select name="empresa_plataforma" id="empresa_plataforma" class="form-control">
-                                    {% for empresa in empresas_permitidas %}
-                                    <option value="{{empresa.id_empresa_id}}">{{empresa.id_empresa}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4 justify-content-md-center">
-                        <div class="row pt-2 justify-content-md-center">
-                            <button class="btn btn-primary btn-lg" type="submit">Enviar</button>
-                        </div>
-                    </div>
-                    </form>
-                    {% endif %}
-                    {% if not empresas_permitidas %}
-                        <div class="alert alert-danger">
-                            No hay empresas habilitadas para usted, por favor verifique con el administrador
-                        </div>
-                    {% endif %}
-                </div>
+       
+    </div>
+
+<div class="row pt-5 justify-content-md-center">
+        <div class="card col-md-4">
+            <h5 class="card-header">Recursos</h5>
+            <div class="card-body">
+                <p class="card-text">En el video encontrará el resumen de uso de la plataforma y sus funcionalidades.</p>
+                <a href="#" class="btn btn-primary"> Ir al recurso </a>
             </div>
         </div>
+        <div class="card col-md-4">
+            <h5 class="card-header"> Notas </h5>
+            <div class="card-body">
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elif</p>
+                <a href="#" class="btn btn-primary"> Ir al recurso </a>
+            </div>
+
+        </div>
+
+    <div class="card col-md-4">
+        <h5 class="card-header"> Notas </h5>
+        <div class="card-body">
+            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elif</p>
+            <a href="#" class="btn btn-primary"> Ir al recurso </a>
+        </div>
+
     </div>
-    </div>
+</div>
+
 {% endblock section %}

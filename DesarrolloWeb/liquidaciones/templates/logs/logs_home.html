@@ -1,8 +1,21 @@
 {%  extends 'base.html' %}
 {% load widget_tweaks %}
 {% block section %}
-<h2>Log de eventos</h2>
-<cite title="Source Title">En este modulo podrá realizar seguimiento a los movimientos realizados por cada usuario</cite>
+<div class="row justify-content-center pt-3">
+    <div class="col-md-12">
+        <div class="card">
+            <dv class="card-header">
+                <h5 class="text-center"> <strong> MODULO LOGS </strong></h5>
+                <p class="text-center">En este modulo podrá realizar seguimiento a los movimientos realizados por cada usuario.
+                    <br>
+                    <strong>Recuerde que el reporte va a estar prefiltrado por la empresa actual</strong>
+                </p>
+            </dv>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="row pt-3">
 <form method="get">
@@ -41,7 +54,7 @@
 <div class="row pt-5">
 <h5>Resultados</h5>
 <div class="table-responsive">
-<table class="table table-striped" id="table_logs">
+<table class="table table-striped table-bordered" id="table_logs">
     <thead class="table-dark">
         <tr>
             <th>id</th>

@@ -1,0 +1,15 @@
+docker-compose run web python manage.py loaddata Empresa
+docker-compose run web python manage.py loaddata EmpresasPermitidas
+docker-compose run web python manage.py loaddata EntidadesSG
+docker-compose run web python manage.py loaddata ConceptoInterno
+docker-compose run web python manage.py loaddata Group
+docker-compose run web python manage.py loaddata ParametrosAFP
+docker-compose run web python manage.py loaddata ParametrosARL
+docker-compose run web python manage.py loaddata ParametrosCCF
+docker-compose run web python manage.py loaddata ParametrosEPS
+docker-compose run web python manage.py loaddata ParametrosFSP
+docker-compose run web python manage.py loaddata ParametrosGlobales
+docker-compose run web python manage.py loaddata ParametrosICBF
+docker-compose run web python manage.py loaddata ParametrosSENA
+docker-compose run web python manage.py loaddata Periodo
+docker-compose run web python manage.py loaddata Nomina
