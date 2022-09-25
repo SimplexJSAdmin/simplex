@@ -56,8 +56,6 @@ class ConceptoInterno(models.Model):
         string_to_show = 'Concepto interno: {} ({})'.format(self.desc_concepto, self.tipo_concepto)
         return string_to_show
 
-
-
 class ConceptoEmpresa(models.Model):
     id = models.AutoField(primary_key=True)
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
