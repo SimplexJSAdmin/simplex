@@ -1,5 +1,6 @@
 import re
 import datetime
+import requests
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
@@ -118,6 +119,23 @@ def preprocesamiento_home(request, empresa_sesion):
 
 @login_required(login_url='login')
 @allowed_users(['preprocesamiento'])
+def cargar_preprocesamiento(request, empresa_sesion):
+    """INICIO DE PROCESADO EN EL BACK 2"""
+    # TODO: Poner esta ruta como variable de entorno
+    cliente = requests.session()
+    periodo_actual = get_periodo_actual()
+    url_back_2 = 'http://localhost:8001/cargar-registros-bd/'
+    preprocesamiento_creado = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
+                                                              empresa_id=request.session['id_empresa'])[0]
+    url = url_back_2+str(preprocesamiento_creado.periodo_id)+'/'+str(preprocesamiento_creado.empresa_id)
+    print(url)
+    response = requests.get(url, verify=False)
+    print(response)
+    return redirect('preprocesamiento')
+
+
+@login_required(login_url='login')
+@allowed_users(['preprocesamiento'])
 def preprocesamiento_crear(request, empresa_sesion):
     # TODO obtener preprocesamientos y validar resultados para permitir cargar archivos o no
     modules = get_modules(request)
@@ -125,22 +143,42 @@ def preprocesamiento_crear(request, empresa_sesion):
     periodo_actual = get_periodo_actual()
 
     if request.method == 'POST':
-        periodo = Periodo.objects.filter(id_periodo=periodo_actual['cod'])
-        if len(periodo) == 0:
-            periodo_nuevo = Periodo(id_periodo=periodo_actual['cod'], mes_periodo=periodo_actual['month'],
-                                    year_periodo=periodo_actual['year'])
-            periodo_nuevo.save()
+        preprocesamiento_actual = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
+                                                                  empresa_id=request.session['id_empresa'])
+        preprocesamiento_actual_validado = validar_preprocesamiento_actual(request, preprocesamiento_actual, context, messages)
+        if preprocesamiento_actual_validado['accion']== 'crear':
+            periodo = Periodo.objects.filter(id_periodo=periodo_actual['cod'])
+            if len(periodo) == 0:
+                periodo_nuevo = Periodo(id_periodo=periodo_actual['cod'], mes_periodo=periodo_actual['month'],
+                                        year_periodo=periodo_actual['year'])
+                periodo_nuevo.save()
+            else:
+                preprocesamiento = Preprocesamiento()
+                preprocesamiento.user = request.user
+                preprocesamiento.empresa = Empresa.objects.get(id_empresa=request.session['id_empresa'])
+                preprocesamiento.planta = request.FILES['planta']
+                preprocesamiento.nomina = request.FILES['nomina']
+                preprocesamiento.novedades = request.FILES['novedades']
+                preprocesamiento.periodo = Periodo.objects.get(id_periodo=periodo_actual['cod'])
+                preprocesamiento.estado = 'subidos_archivos'
+                preprocesamiento.fecha = datetime.datetime.now()
+                preprocesamiento.save()
+                return redirect('preprocesamiento_cargar')
         else:
-            preprocesamiento = Preprocesamiento()
-            preprocesamiento.user = request.user
-            preprocesamiento.empresa = Empresa.objects.get(id_empresa=request.session['id_empresa'])
-            preprocesamiento.planta = request.FILES['planta']
-            preprocesamiento.nomina = request.FILES['nomina']
-            preprocesamiento.novedades = request.FILES['novedades']
-            preprocesamiento.periodo = Periodo.objects.get(id_periodo=periodo_actual['cod'])
-            preprocesamiento.estado = 'subidos_archivos'
-            preprocesamiento.fecha = datetime.datetime.now()
-            preprocesamiento.save()
+            preprocesamiento_actual[0].user = request.user
+            preprocesamiento_actual[0].empresa = Empresa.objects.get(id_empresa=request.session['id_empresa'])
+            preprocesamiento_actual[0].planta = request.FILES['planta']
+            preprocesamiento_actual[0].nomina = request.FILES['nomina']
+            preprocesamiento_actual[0].novedades = request.FILES['novedades']
+            preprocesamiento_actual[0].periodo = Periodo.objects.get(id_periodo=periodo_actual['cod'])
+            preprocesamiento_actual[0].estado = 'subidos_archivos'
+            preprocesamiento_actual[0].fecha = datetime.datetime.now()
+            preprocesamiento_actual[0].save()
+            """INICIO DE PROCESADO EN EL BACK 2"""
+            #TODO: Poner esta ruta como variable de entorno
+            url_back_2 = 'http://localhost:8001/cargar-registros-bd/'
+            planta_file = open(request.FILES['planta'], 'rb')
+            response = requests.post(url_back_2, files={'planta':planta_file})
             return redirect('preprocesamiento')
     else:
         preprocesamientos_pendientes = Preprocesamiento.objects.filter(
@@ -150,7 +188,8 @@ def preprocesamiento_crear(request, empresa_sesion):
         else:
             preprocesamiento_actual = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
                                                                       empresa_id=request.session['id_empresa'])
-            preprocesamiento_actual_validado = validar_preprocesamiento_actual(request, preprocesamiento_actual, context, messages)
+            preprocesamiento_actual_validado = validar_preprocesamiento_actual(request, preprocesamiento_actual,
+                                                                               context, messages)
             if not preprocesamiento_actual_validado:
                 return redirect('preprocesamiento')
             else:

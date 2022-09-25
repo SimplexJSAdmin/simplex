@@ -1,6 +1,7 @@
 from pyexpat import model
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import FileExtensionValidator
 
 
 class Empresa(models.Model):
@@ -348,3 +349,34 @@ class Log(models.Model):
 
     class Meta:
         db_table = 'liquidaciones_log'
+
+class Preprocesamiento(models.Model):
+    estados = [
+        ('subidos_archivos', 'Archivos cargados al servidor'),
+        ('cargando_db', 'Cargando archivos a la base de datos'),
+        ('generando_liquidaciones', 'Generando las liquidaciones'),
+        ('liquidacion_disponible', 'Liquidación disponible para descarga'),
+        ('error_mi_planilla', 'Liquidación no ha pasado la revisión final'),
+        ('exito_mi_planilla', 'Liquidación finalizada y aceptada por MiPlanilla')
+    ]
+    user = models.ForeignKey(User, on_delete= models.CASCADE)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    planta = models.FileField(upload_to='path/', validators=[FileExtensionValidator(['csv'])])
+    nomina = models.FileField(upload_to='path/', validators=[FileExtensionValidator(['csv'])])
+    novedades  = models.FileField(upload_to='path/', validators=[FileExtensionValidator(['txt'])])
+    periodo = models.ForeignKey(Periodo, on_delete=models.CASCADE)
+    estado = models.CharField(choices=estados, max_length=35)
+    fecha = models.DateTimeField()
+
+    class Meta:
+        db_table = 'liquidaciones_preprocesamiento'
+
+
+class ParametrosGlobales(models.Model):
+    id = models.AutoField(primary_key=True)
+    descripcion = models.CharField(max_length=100)
+    valor = models.FloatField()
+    unidad_medida = models.CharField(max_length=30)
+
+    class Meta:
+        db_table = 'liquidaciones_parametrosglobales'

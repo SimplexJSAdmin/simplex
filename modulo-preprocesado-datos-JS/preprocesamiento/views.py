@@ -1,4 +1,7 @@
 from django.shortcuts import render
+import requests
+from django.http import HttpResponse
+from .functions import *
 from .models import *
 import pandas as pd
 
@@ -14,14 +17,15 @@ def home(request):
     #TODO: Al finalizar escribir log de proceso finalizado
     return render(request, 'empresa_prueba.html', {'empresas':logs})
 
-def cargar_archivos_usuario(request):
-    #Recibe un multipart-form 3-archivos
-    pass
-
-
-def cargar_archivos_en_db(request):
-    pass
-
+def cargar(request, periodo, empresa):
+    cliente = login()
+    print('Etapa de logeo pasada')
+    preprocesamiento_creado = Preprocesamiento.objects.filter(periodo_id=periodo,
+                                                              empresa_id=empresa)
+    file = cliente.get('http://localhost:8001/app/preprocesamiento/descargar/nomina/'+preprocesamiento_creado[0].nomina, timeout=10)
+    print(file)
+    logout(cliente)
+    return HttpResponse(request,'Resultado obtenido')
 
 def liquidar(request):
     pass

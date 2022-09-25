@@ -9,6 +9,7 @@ urlpatterns = [
     path('reportes/resultado', views.obtener_reportes_final, name='reportes_result'),
     path('preprocesamiento', views.preprocesamiento_home, name='preprocesamiento'),
     path('preprocesamiento/crear', views.preprocesamiento_crear, name='preprocesamiento_crear'),
+    path('preprocesamiento/cargar-preprocesamiento', views.cargar_preprocesamiento, name='preprocesamiento_cargar'),
     path('preprocesamiento/descargar/<str:file_type>/path/<str:file_name>', views.preprocesamiento_descargar, name='preprocesamiento_crear'),
     path('liquidaciones', views.liquidaciones_home, name='liquidaciones'),
     path('parametros', views.parametros_home, name='parametros'),
