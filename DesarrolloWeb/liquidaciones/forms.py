@@ -9,7 +9,7 @@ class EmpresasCreateForm(forms.ModelForm):
 
 class ConceptoInternoForm(forms.ModelForm):
     class Meta:
-        model = ConceptoInterno
+        model = ConceptoEmpresa
         fields = '__all__'
 
 class FileForm(forms.ModelForm):

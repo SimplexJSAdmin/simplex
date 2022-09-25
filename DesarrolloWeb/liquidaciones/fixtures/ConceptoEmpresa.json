@@ -1,0 +1,33 @@
+[
+    {
+        "model":"liquidaciones.ConceptoEmpresa",
+        "pk":"AVI1010",
+        "fields": {
+            "empresa": "Avianca",
+            "cod_concepto": "1010",
+            "desc_concepto": "Salario",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "devengo",
+            "cuenta_contable": "1234",
+            "desc_cuenta": "Cuenta salarios",
+            "observacion": "ninguna"
+        }
+    },
+
+    {
+        "model":"liquidaciones.ConceptoEmpresa",
+        "pk":"AVI1020",
+        "fields": {
+            "empresa": "Avianca",
+            "cod_concepto": "1020",
+            "desc_concepto": "Bono",
+            "tipo_clasificacion": "NoSalarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "devengo",
+            "cuenta_contable": "1235",
+            "desc_cuenta": "Cuenta bonos",
+            "observacion": "ninguna"
+        }
+    },
+]

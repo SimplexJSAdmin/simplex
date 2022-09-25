@@ -1,4 +1,5 @@
 from pyexpat import model
+from secrets import choice
 from statistics import mode
 from django.db import models
 from django.core.validators import FileExtensionValidator
@@ -9,6 +10,7 @@ class Empresa(models.Model):
     id_empresa = models.AutoField(primary_key=True)
     nombre_empresa = models.CharField(max_length=75, verbose_name='Nombre de la empresa')
     aplica_exoneracion = models.BooleanField()
+    siglas = models.CharField(max_length=3, unique=True)
 
     def __str__(self):
         string_to_show = '{}'.format(self.nombre_empresa)
@@ -44,24 +46,25 @@ class Periodo(models.Model):
         return string_to_show
 
 
-class ConceptoInterno(models.Model):
-    SALARIAL = 'Salarial'
-    NO_SALARIAL = 'No salarial'
-    id = models.AutoField(primary_key=True)
-    desc_concepto = models.CharField(max_length=75)
-    tipos_concepto_choices = [(SALARIAL, 'Salarial'), (NO_SALARIAL, 'No salarial')]
-    tipo_concepto = models.CharField(max_length=12, choices=tipos_concepto_choices, default=SALARIAL)
-
-    def __str__(self):
-        string_to_show = 'Concepto interno: {} ({})'.format(self.desc_concepto, self.tipo_concepto)
-        return string_to_show
 
 class ConceptoEmpresa(models.Model):
-    id = models.AutoField(primary_key=True)
+    clasificacion = [('salarial','Salarial'),('no_salarial','NoSalarial'),('na','NoAplica')]
+    novedad = [('na','NoAplica'),('vac','Vacaciones'),('ige','IncapacidadEPS'),('irl','IncapacidadARL'),('lma','LicenciaMaternidad'),('sln','Suspension'),('avp','AporteVoluntario')]
+    tipo = [('devengo','Devengo'),('descuento','Descuento')]
+    id = models.CharField(primary_key=True, max_length=13)
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    cod_concepto = models.CharField(max_length=10)
     desc_concepto = models.CharField(max_length=150)
-    concepto_interno = models.ForeignKey(ConceptoInterno, on_delete=models.CASCADE)
+    tipo_clasificacion = models.CharField(choices=clasificacion, max_length=50)
+    tipo_novedad = models.CharField(choices=novedad, max_length=50, default='na')
+    tipo_concepto = models.CharField(choices=tipo, max_length=50)
+    cuenta_contable = models.CharField(max_length=15, default='')
+    desc_cuenta = models.CharField(max_length=100, default='')
+    observacion = models.CharField(max_length=130, default='')
 
+    def __str__(self):
+        string_to_show = '{}'.format(self.desc_concepto)
+        return string_to_show
 
 class ParametrosEPS(models.Model):
     id = models.AutoField(primary_key=True)
@@ -197,7 +200,7 @@ class Nomina(models.Model):
     tpclcnom2 = models.CharField(max_length=75)
     idnom2 = models.CharField(max_length=75)
     ag_pai = models.CharField(max_length=75)
-    cod_concepto = models.ForeignKey(ConceptoInterno, on_delete=models.CASCADE)
+    cod_concepto = models.ForeignKey(ConceptoEmpresa, on_delete=models.CASCADE)
     desc_concepto = models.CharField(max_length=150)
     cantidad = models.IntegerField()
     importe = models.FloatField()

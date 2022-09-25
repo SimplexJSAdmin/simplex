@@ -4,7 +4,8 @@
     "pk": 1,
     "fields": {
       "nombre_empresa": "Avianca",
-      "aplica_exoneracion": "True"
+      "aplica_exoneracion": "True",
+      "siglas":"AVI"
     }
   },
    {
@@ -12,7 +13,8 @@
     "pk": 2,
     "fields": {
       "nombre_empresa": "Empresa 2",
-      "aplica_exoneracion": "False"
+      "aplica_exoneracion": "False",
+      "siglas": "EMP"
     }
   }
 ]
