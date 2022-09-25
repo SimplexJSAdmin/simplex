@@ -172,8 +172,8 @@ def preprocesamiento_crear(request, empresa_sesion):
                 cliente = requests.Session()
                 res_1 = cliente.get(url_back_2)
                 print(res_1)
-                csrf_token = cliente.cookies['csrftoken']
-                response = requests.post(url_back_2, files={'planta': planta_file,  'csrfmiddlewaretoken':csrf_token})
+                #csrf_token = cliente.cookies['csrftoken']
+                response = requests.post(url_back_2, files={'planta': planta_file,  'csrfmiddlewaretoken':'csrf_token'})
                 print(response)
                 return redirect('preprocesamiento')
         else:
