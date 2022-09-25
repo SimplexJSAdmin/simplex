@@ -14,14 +14,15 @@ def login():
 
     #TODO definir como variables de entorno
 
-    client.get('http://localhost:8000/app/login',  timeout=11)
+    response_1 = client.get('http://172.21.0.4:8000/app/login',  timeout=11)
+    print('Response1:',"-"*15,response_1)
     csrf_token = client.cookies['csrftoken']
     login_data = {'username':'root', 'pass':'root', 'csrfmiddlewaretoken':csrf_token}
-    r1 = client.post('http://localhost:8000/app/login', data=login_data,  timeout=10)
+    r1 = client.post('http://172.21.0.4:8000/app/login', data=login_data,  timeout=10)
     return client
 
 def logout(client):
-    client.get('http://localhost:8000/app/logout')
+    client.get('http://172.21.0.4:8000/app/logout')
     del(client)
     return True
 

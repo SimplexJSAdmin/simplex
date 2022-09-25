@@ -9,6 +9,8 @@ import pandas as pd
 def home(request):
     #TODO: Primero guardar el log de back2 ocupado
     #TODO: Establecer logica para cargar los archivos
+    response = requests.get('http://localhost:8000/app/login')
+    return HttpResponse(response)
     file_nomina = ()
     file_planta = ()
     file_novedades = ()
@@ -22,10 +24,11 @@ def cargar(request, periodo, empresa):
     print('Etapa de logeo pasada')
     preprocesamiento_creado = Preprocesamiento.objects.filter(periodo_id=periodo,
                                                               empresa_id=empresa)
-    file = cliente.get('http://localhost:8001/app/preprocesamiento/descargar/nomina/'+preprocesamiento_creado[0].nomina, timeout=10)
-    print(file)
+    url = 'http://172.21.0.4:8000/app/preprocesamiento/descargar/nomina/'+str(preprocesamiento_creado[0].nomina)
+    file = cliente.get(url, timeout=10)
+    print("Archivo obtenido:", file)
     logout(cliente)
-    return HttpResponse(request,'Resultado obtenido')
+    return HttpResponse('Resultado obtenido')
 
 def liquidar(request):
     pass

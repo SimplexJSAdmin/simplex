@@ -124,12 +124,12 @@ def cargar_preprocesamiento(request, empresa_sesion):
     # TODO: Poner esta ruta como variable de entorno
     cliente = requests.session()
     periodo_actual = get_periodo_actual()
-    url_back_2 = 'http://localhost:8001/cargar-registros-bd/'
+    url_back_2 = 'http://127.0.0.1:8001/cargar-registros-bd/'
     preprocesamiento_creado = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
                                                               empresa_id=request.session['id_empresa'])[0]
     url = url_back_2+str(preprocesamiento_creado.periodo_id)+'/'+str(preprocesamiento_creado.empresa_id)
     print(url)
-    response = requests.get(url, verify=False)
+    response = cliente.get(url, verify=False)
     print(response)
     return redirect('preprocesamiento')
 

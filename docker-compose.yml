@@ -18,6 +18,7 @@ services:
       - ./DesarrolloWeb/:/code
     ports:
       - "8000:8000"
+      - "8866:8866"
     environment:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
