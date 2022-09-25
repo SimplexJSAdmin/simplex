@@ -1,32 +1,32 @@
 <div class="row pt-2 col-md-12">
     <div class="table-responsive">
-<table class="table table-striped table-bordered" id="table_logs">
+        <table class="table table-striped table-bordered" id="table_nomina">
             <thead class="table-dark">
-            <tr>
-                <th>Periodo</th>
-                <th>No_Personal</th>
-                <th>Apellido_Nombre</th>
-                <th>codigo_concepto</th>
-                <th>desc_concepto</th>
-                <th>cantidad</th>
-                <th>importe</th>
-            </tr>
+                <tr>
+                    <th>Periodo</th>
+                    <th>No_Personal</th>
+                    <th>Apellido_Nombre</th>
+                    <th>codigo_concepto</th>
+                    <th>desc_concepto</th>
+                    <th>cantidad</th>
+                    <th>importe</th>
+                </tr>
             </thead>
             <tbody>
 
-            {% for registro in resultados %}
-            <tr>
-                <td>{{registro.id_periodo}}</td>
-                <td>{{registro.no_personal}}</td>
-                <td>{{registro.apellido_nombre}}</td>
-                <td>{{registro.cod_concepto}}</td>
-                <td>{{registro.desc_concepto}}</td>
-                <td>{{registro.cantidad}}</td>
-                <td>{{registro.importe}}</td>
-            </tr>
-            {% endfor %}
+                {% for registro in resultados %}
+                <tr>
+                    <td>{{registro.periodo}}</td>
+                    <td>{{registro.no_personal}}</td>
+                    <td>{{registro.apellido_nombre}}</td>
+                    <td>{{registro.cod_concepto}}</td>
+                    <td>{{registro.desc_concepto}}</td>
+                    <td>{{registro.cantidad}}</td>
+                    <td>{{registro.importe}}</td>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
 
-        </div>
+    </div>
 </div>

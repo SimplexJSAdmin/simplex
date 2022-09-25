@@ -13,7 +13,7 @@
                     {% csrf_token %}
                     <div class="row">
                         {% for field in myFilter.form %}
-                        <div class="form-group col-sm-4 col-md-3 p-1">
+                        <div class="form-group col-sm-4 col-md-3">
                             {{field.label_tag}}
                             {% render_field field class="form-control" %}
                         </div>
@@ -24,6 +24,12 @@
                 </form>
             </div>
             </div>
+        </div>
+    </div>
+
+    <div class="row pt-5" >
+        <div class="col-md-4 justify-content-end">
+            <button class="btn btn-success btn-sm" onclick=""> Exportar xlsx </button>
         </div>
     </div>
 

@@ -49,10 +49,13 @@
 
 
 
+<div class="row pt-5" >
+    <div class="col-md-4 justify-content-end">
+        <button class="btn btn-success btn-sm" onclick=""> Exportar xlsx </button>
+    </div>
+</div>
 
-
-<div class="row pt-5">
-<h5>Resultados</h5>
+<div class="row pt-1">
 <div class="table-responsive">
 <table class="table table-striped table-bordered" id="table_logs">
     <thead class="table-dark">
@@ -78,7 +81,9 @@
         </tr>
         {% endfor %}
         {% else %}
-        <h1>No hay registros de Logs</h1>
+        <div class="row pt-2">
+        <h3>No hay registros de Logs</h3>
+    </div>
         {% endif %}
     </tbody>
 </table>

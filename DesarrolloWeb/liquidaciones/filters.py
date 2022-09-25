@@ -11,13 +11,14 @@ class LogsFilter(django_filters.FilterSet):
     class Meta:
         model = Log
         fields = '__all__'
-        exclude = ['descripcion', 'fecha', 'empresa']
+        exclude = ['descripcion', 'fecha']
 
 class ReporteNomina(django_filters.FilterSet):
+    apellido_nombre = django_filters.CharFilter(lookup_expr='icontains')
     class Meta:
         model = Nomina
         field = '__all__'
-        exclude = ['id_empresa','NIF','percalnom','area_nomina','paper','denom_periodos','periodo_inicia','fecha_inicia','tpclcnom','area_cal_nom','area_nomina2','paper2','denom_periodos2','periodo_fin','fecha_fin','tpclcnom2','idnom2','ag_pai','moneda']
+        exclude = ['empresa','NIF','percalnom','area_nomina','paper','denom_periodos','periodo_inicia','fecha_inicia','tpclcnom','area_cal_nom','area_nomina2','paper2','denom_periodos2','periodo_fin','fecha_fin','tpclcnom2','idnom2','ag_pai','moneda']
 
 class ReportePlanta(django_filters.FilterSet):
     class Meta:

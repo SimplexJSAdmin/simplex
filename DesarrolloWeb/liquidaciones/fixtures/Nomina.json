@@ -4,7 +4,7 @@
       "pk": 1,
       "fields": {
         "empresa": "1",
-        "periodo": 202202,
+        "periodo": 202207,
         "no_personal": 3800002,
         "apellido_nombre": "TENORIO ANDRES",
         "nombre_completo": "Tenorio Andres",
@@ -40,9 +40,9 @@
         "pk": 2,
         "fields": {
           "empresa": "1",
-          "periodo": 202201,
+          "periodo": 202206,
           "no_personal": 3800002,
-          "apellido_nombre": "TENORIO ANDRES",
+          "apellido_nombre": "Fandino Camilo",
           "nombre_completo": "Tenorio Andres",
           "NIF": "",
           "divp": "COBO",
