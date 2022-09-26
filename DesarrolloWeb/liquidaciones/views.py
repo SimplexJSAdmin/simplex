@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, FileResponse
 from .models import Empresa, EmpresasPermitidas, Planta, ParametrosEPS, ParametrosFSP, ParametrosAFP, ParametrosARL, \
-    ParametrosCAJA, ParametrosICBF, ParametrosSENA, ConceptoEmpresa, ConceptoInterno, Log
+    ParametrosCAJA, ParametrosICBF, ParametrosSENA, ConceptoEmpresa, Log
 from .forms import *
 from .decorators import *
 from .functions import *
@@ -164,11 +164,13 @@ def preprocesamiento_crear(request, empresa_sesion):
                 preprocesamiento.estado = 'subidos_archivos'
                 preprocesamiento.fecha = datetime.datetime.now()
                 preprocesamiento.save()
+                print('-'*15,'Data recibida y registro creado')
                 """ INICIO DE CARGA ARCHVOS A BACK 2"""
                 preprocesamiento_generado = Preprocesamiento.objects.filter(periodo_id=periodo_actual['cod'],
                                                                   empresa_id=request.session['id_empresa'])[0]
                 url_back_2 = os.environ.get('DOMAIN_BACK_2')+':8001'
                 url_login_back_2 = url_back_2+'/login/'
+                print(url_back_2)
                 cliente = requests.Session()
                 cliente.get(url_login_back_2)
                 csrf_token = cliente.cookies['csrftoken']
@@ -192,6 +194,8 @@ def preprocesamiento_crear(request, empresa_sesion):
                                                },
                                         data={'csrfmiddlewaretoken':csrf_token})
                 print(response.text)
+                #Iniciar proceso
+                cliente.get(url_back_2+'/iniciar/')
                 return redirect('preprocesamiento')
         else:
             preprocesamiento_actual[0].user = request.user

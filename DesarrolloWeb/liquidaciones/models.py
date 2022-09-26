@@ -49,7 +49,7 @@ class Periodo(models.Model):
 
 class ConceptoEmpresa(models.Model):
     clasificacion = [('salarial','Salarial'),('no_salarial','NoSalarial'),('na','NoAplica')]
-    novedad = [('na','NoAplica'),('vac','Vacaciones'),('ige','IncapacidadEPS'),('irl','IncapacidadARL'),('lma','LicenciaMaternidad'),('sln','Suspension'),('avp','AporteVoluntario')]
+    novedad = [('na','NoAplica'),('vac','Vacaciones'),('ige','IncapacidadEPS'),('irl','IncapacidadARL'),('lma','Licencia Maternidad'),('sln','Suspension'),('avp','AporteVoluntario')]
     tipo = [('devengo','Devengo'),('descuento','Descuento')]
     id = models.CharField(primary_key=True, max_length=13)
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
@@ -345,3 +345,7 @@ class ParametrosGlobales(models.Model):
     descripcion = models.CharField(max_length=100)
     valor = models.FloatField()
     unidad_medida = models.CharField(max_length=30)
+
+    def __str__(self):
+        string_to_show = 'Id({}) {}-{}'.format(self.id, self.descripcion, self.valor)
+        return string_to_show

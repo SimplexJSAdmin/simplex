@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block section %}
+<form action="" method="post">
+    {%csrf_token%}
+    <input type="text" name="liquidacion_actual">
+    <input type="text" name="liquidacion_anterior">
+    <input type="text" name="planta_actual">
+    <input type="text" name="planta_anterior">
+    <input type="text" name="liquidacion_actual">
+    <input type="text" name="liquidacion_anterior">
+</form>
+{% endblock %}
