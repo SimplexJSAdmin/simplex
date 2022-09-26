@@ -1,33 +1,2582 @@
 [
     {
-        "model":"liquidaciones.ConceptoEmpresa",
-        "pk":"AVI1010",
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2170",
         "fields": {
-            "empresa": "Avianca",
-            "cod_concepto": "1010",
-            "desc_concepto": "Salario",
+            "empresa": "1",
+            "cod_concepto": "2170",
+            "desc_concepto": "Project All for Venezuela",
             "tipo_clasificacion": "Salarial",
             "tipo_novedad": "na",
-            "tipo_concepto": "devengo",
-            "cuenta_contable": "1234",
-            "desc_cuenta": "Cuenta salarios",
-            "observacion": "ninguna"
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000086",
+            "desc_cuenta": "Legal Compensation",
+            "observacion": "sin obs"
         }
     },
-
     {
-        "model":"liquidaciones.ConceptoEmpresa",
-        "pk":"AVI1020",
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2171",
         "fields": {
-            "empresa": "Avianca",
-            "cod_concepto": "1020",
-            "desc_concepto": "Bono",
-            "tipo_clasificacion": "NoSalarial",
+            "empresa": "1",
+            "cod_concepto": "2171",
+            "desc_concepto": "Bono Desplazamiento",
+            "tipo_clasificacion": "Salarial",
             "tipo_novedad": "na",
-            "tipo_concepto": "devengo",
-            "cuenta_contable": "1235",
-            "desc_cuenta": "Cuenta bonos",
-            "observacion": "ninguna"
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000086",
+            "desc_cuenta": "Legal Compensation",
+            "observacion": "sin obs"
         }
     },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2180",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2180",
+            "desc_concepto": "Auxilio por Teletrabajo",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2247",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2247",
+            "desc_concepto": "All Against COVID",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000086",
+            "desc_cuenta": "Legal Compensation",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2248",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2248",
+            "desc_concepto": "All4Equality",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000086",
+            "desc_cuenta": "Legal Compensation",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3082",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3082",
+            "desc_concepto": "RSU Provisionada",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000048",
+            "desc_cuenta": "Stock Option Salary",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3083",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3083",
+            "desc_concepto": "Desc.RSU Provisionada",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000048",
+            "desc_cuenta": "Stock Option Salary",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3700",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3700",
+            "desc_concepto": "Beneficio ESPP",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO7000",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "7000",
+            "desc_concepto": "Descuento ESPP",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "22000042",
+            "desc_cuenta": "Descuento ESPP",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO7001",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "7001",
+            "desc_concepto": "Ajuste ESPP",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "22000042",
+            "desc_cuenta": "Descuento ESPP",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO7700",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "7700",
+            "desc_concepto": "Ant.Benef.ESPP",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9100",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9100",
+            "desc_concepto": "Reintegro Guardería",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9101",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9101",
+            "desc_concepto": "Reintegro Guardería",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9110",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9110",
+            "desc_concepto": "Prog. Asistencia p/Padres",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "57000034",
+            "desc_cuenta": "Beneficio al pers ND",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9398",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9398",
+            "desc_concepto": "Vacaciones Comp. en Term.",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9493",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9493",
+            "desc_concepto": "Pago Vacaciones en Dinero",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9730",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9730",
+            "desc_concepto": "Vacaciones Días Hábiles",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9731",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9731",
+            "desc_concepto": "Vacaciones Días No Hábile",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1ABP",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1ABP",
+            "desc_concepto": "Anticipo Bono Performance",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "15400017",
+            "desc_cuenta": "Anticipo Bono Perfor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1ASI",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1ASI",
+            "desc_concepto": "Ajuste Salario Integral",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAC",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAC",
+            "desc_concepto": "Restricted Stock Units",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000048",
+            "desc_cuenta": "Stock Option Salary",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAD",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAD",
+            "desc_concepto": "Desc.Restric. Stock Units",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000048",
+            "desc_cuenta": "Stock Option Salary",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAE",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAE",
+            "desc_concepto": "Plan Stock Options",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000048",
+            "desc_cuenta": "Stock Option Salary",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAF",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAF",
+            "desc_concepto": "Desc.Plan Stiock Options",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000048",
+            "desc_cuenta": "Stock Option Salary",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAG",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAG",
+            "desc_concepto": "Beneficio Auxilio de Celu",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAH",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAH",
+            "desc_concepto": "Benef Aux Serv Púb Int",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAJ",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAJ",
+            "desc_concepto": "Auxilio por Teletrabajo",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAM",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAM",
+            "desc_concepto": "Beneficio Plan Educ Aux M",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAP",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAP",
+            "desc_concepto": "Beneficio AP. Pensión",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAT",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAT",
+            "desc_concepto": "Benef. Aux. Mon.Transport",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000068",
+            "desc_cuenta": "Asignacion movilidad",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BAV",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BAV",
+            "desc_concepto": "Benef. Aux. Mon. Vivienda",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BCC",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BCC",
+            "desc_concepto": "Bono Unica Vez",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BEX",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BEX",
+            "desc_concepto": "Bono ExtraordinarioBeKind",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000055",
+            "desc_cuenta": "Bonos relocation",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BGL",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BGL",
+            "desc_concepto": "Bono Challenge",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000031",
+            "desc_cuenta": "Bonos c/ revenue",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BHC",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BHC",
+            "desc_concepto": "Bono Hiring",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000038",
+            "desc_cuenta": "Bonos Hiring",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BHD",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BHD",
+            "desc_concepto": "Bono Reconocimiento",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000034",
+            "desc_cuenta": "Bonos Reconocimiento",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BML",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BML",
+            "desc_concepto": "Bonificación Por Mera Lib",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000098",
+            "desc_cuenta": "Bono mera liberalid",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BNS",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BNS",
+            "desc_concepto": "Bonificación No Salarial",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000009",
+            "desc_cuenta": "Bonos proyecto",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPC",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPC",
+            "desc_concepto": "Beneficio Aporte vol. Col",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPE",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPE",
+            "desc_concepto": "Bono Performance Salarial",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000025",
+            "desc_cuenta": "Provisión Bono Perfo",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPR",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPR",
+            "desc_concepto": "Bono Proyectos",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000009",
+            "desc_cuenta": "Bonos proyecto",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPS",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPS",
+            "desc_concepto": "Bene. Plan Salud Aux Mone",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPT",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPT",
+            "desc_concepto": "Bono Proyectos",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000031",
+            "desc_cuenta": "Bonos c/ revenue",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPU",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPU",
+            "desc_concepto": "Bono Especial",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000031",
+            "desc_cuenta": "Bonos c/ revenue",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPV",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPV",
+            "desc_concepto": "Beneficio Aporte Vol. Por",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPW",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPW",
+            "desc_concepto": "Christmas4All",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000086",
+            "desc_cuenta": "Legal Compensation",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BPX",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BPX",
+            "desc_concepto": "Bootcamp",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000009",
+            "desc_cuenta": "Bonos proyecto",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BRE",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BRE",
+            "desc_concepto": "Bono Relocación",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000055",
+            "desc_cuenta": "Bonos relocation",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BRF",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BRF",
+            "desc_concepto": "Bono Referido Col.",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000037",
+            "desc_cuenta": "Bonos Referidos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BRN",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BRN",
+            "desc_concepto": "Bonif. Retiro No Salarial",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "57000013",
+            "desc_cuenta": "Benef. al personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BVA",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BVA",
+            "desc_concepto": "Beneficio. Vales de Alime",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000012",
+            "desc_cuenta": "Tickets Restaurant",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BVD",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BVD",
+            "desc_concepto": "Benef. Aporte vol. Dafut.",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BVP",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BVP",
+            "desc_concepto": "Beneficio Aporte vol. Pro",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000050",
+            "desc_cuenta": "Seguro  Retiro",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1BVS",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1BVS",
+            "desc_concepto": "Beneficio Aporte vol. Ska",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1GRE",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1GRE",
+            "desc_concepto": "Gastos de Representacion",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000019",
+            "desc_cuenta": "Comisiones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1GUP",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1GUP",
+            "desc_concepto": "Gross UP Salarial",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1M50",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1M50",
+            "desc_concepto": "Ajuste Apoyo Sostenimient",
+            "tipo_clasificacion": "Sostenimiento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000045",
+            "desc_cuenta": "Provisión Ob. Social",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1M90",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1M90",
+            "desc_concepto": "Ajuste Sueldo",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1M95",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1M95",
+            "desc_concepto": "Recargo nocturno",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1M96",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1M96",
+            "desc_concepto": "Recargo Dominical",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1MAC",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1MAC",
+            "desc_concepto": "AuxNo Salarial Conectivid",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1MCH",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1MCH",
+            "desc_concepto": "Guardería",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1MGU",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1MGU",
+            "desc_concepto": "Guardia",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000018",
+            "desc_cuenta": "Bono Guardias",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1MGV",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1MGV",
+            "desc_concepto": "Guardia",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000031",
+            "desc_cuenta": "Bonos c/ revenue",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1MPR",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1MPR",
+            "desc_concepto": "Ajuste Prima Legal Servic",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000000",
+            "desc_cuenta": "Provision SAC",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1MST",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1MST",
+            "desc_concepto": "Auxilio De Transporte",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1NBM",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1NBM",
+            "desc_concepto": "Bono MVP",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000059",
+            "desc_cuenta": "Provisión Bono MVP",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1NBP",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1NBP",
+            "desc_concepto": "Pago Bono Performance",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000047",
+            "desc_cuenta": "Provi Bono Año Ant",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1RET",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1RET",
+            "desc_concepto": "Retroac Salario Ordinario",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1SDV",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1SDV",
+            "desc_concepto": "Seguro de Vida",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000017",
+            "desc_cuenta": "Seguro Obligat. dist",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO1VAL",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "1VAL",
+            "desc_concepto": "Vales Canasta Salariales",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "57000013",
+            "desc_cuenta": "Benef. al personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2ACU",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2ACU",
+            "desc_concepto": "Descuento Acuerdo",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2AIN",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2AIN",
+            "desc_concepto": "Aporte Inst. Empresa",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2ANP",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2ANP",
+            "desc_concepto": "Desc. Adelanto Automatico",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2ANT",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2ANT",
+            "desc_concepto": "Descuento Anticipo Nomina",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2ART",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2ART",
+            "desc_concepto": "Descuento Acuerdo RET",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2DAP",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2DAP",
+            "desc_concepto": "Descuento Aut Parqueadero",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000065",
+            "desc_cuenta": "Provision Desc Emple",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2DAU",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2DAU",
+            "desc_concepto": "Descuento Autorizado",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000051",
+            "desc_cuenta": "Gratif. al Personal",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2DCE",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2DCE",
+            "desc_concepto": "Descuento Celular",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "22000016",
+            "desc_cuenta": "Libranzas",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2DES",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2DES",
+            "desc_concepto": "Desc.Globers Travel",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000065",
+            "desc_cuenta": "Provision Desc Emple",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2DPS",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2DPS",
+            "desc_concepto": "Descuento Poliza Sura",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "215203",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2DVI",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2DVI",
+            "desc_concepto": "Descuento Viaje Las Leñas",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2EMI",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2EMI",
+            "desc_concepto": "Descuento Emi",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000045",
+            "desc_cuenta": "Provisión Ob. Social",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2LCF",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2LCF",
+            "desc_concepto": "Libranza BANCO CREDIFINAN",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "232176",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2LCO",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2LCO",
+            "desc_concepto": "Libranza Compensar",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "212065",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2RSU",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2RSU",
+            "desc_concepto": "Desc RSU / SO",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2SDV",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2SDV",
+            "desc_concepto": "Seguro de Vida",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "24000199",
+            "desc_cuenta": "Provi Seguro y ART",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T04",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T04",
+            "desc_concepto": "Retefuente Adicional",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "207106",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T05",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T05",
+            "desc_concepto": "Ajuste Retención Fuente",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "207106",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T13",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T13",
+            "desc_concepto": "Retención CS",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000066",
+            "desc_cuenta": "Cargas Soc. SOP HR",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T14",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T14",
+            "desc_concepto": "Retención Fuente",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "15400087",
+            "desc_cuenta": "SO Income Tax Reimbu",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T17",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T17",
+            "desc_concepto": "Retencion CSP",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000066",
+            "desc_cuenta": "Cargas Soc. SOP HR",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T18",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T18",
+            "desc_concepto": "Retención  CSFSP",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000066",
+            "desc_cuenta": "Cargas Soc. SOP HR",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T26",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T26",
+            "desc_concepto": "Embargo Ejecutivo",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206185",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T28",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T28",
+            "desc_concepto": "Embargo ICETEX",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "225255",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T30",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T30",
+            "desc_concepto": "Descuento Decreto 376",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "229920",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T31",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T31",
+            "desc_concepto": "Dto.Medic prep SURA",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000045",
+            "desc_cuenta": "Provisión Ob. Social",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T32",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T32",
+            "desc_concepto": "Dto.Medic prep COLMEDICA",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000045",
+            "desc_cuenta": "Provisión Ob. Social",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T33",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T33",
+            "desc_concepto": "Retención CS (SO)",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000066",
+            "desc_cuenta": "Cargas Soc. SOP HR",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T34",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T34",
+            "desc_concepto": "Retención Fuente (SO)",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "15400087",
+            "desc_cuenta": "SO Income Tax Reimbu",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T37",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T37",
+            "desc_concepto": "Retencion CSP (SO)",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000066",
+            "desc_cuenta": "Cargas Soc. SOP HR",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T38",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T38",
+            "desc_concepto": "Retención  CSFSP (SO)",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000066",
+            "desc_cuenta": "Cargas Soc. SOP HR",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2T54",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2T54",
+            "desc_concepto": "Ajuste T020 Ap.FSP",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "206994",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO2VAI",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "2VAI",
+            "desc_concepto": "Dto.Vales Aliment.Integr.",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "24000202",
+            "desc_cuenta": "Provision Tickets HR",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3PBB",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3PBB",
+            "desc_concepto": "Libranzas BBVA",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "215202",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3PBC",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3PBC",
+            "desc_concepto": "Préstamo Libranza Bancolo",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "207107",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3PCF",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3PCF",
+            "desc_concepto": "Libranza Comfama",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "228803",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3PCI",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3PCI",
+            "desc_concepto": "Préstamo Libranza Citiban",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "212064",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3PCL",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3PCL",
+            "desc_concepto": "Libranza Alianza",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "231424",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3PCO",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3PCO",
+            "desc_concepto": "Libranzas Colsubsidio",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "215201",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3PDA",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3PDA",
+            "desc_concepto": "Libranza Davivienda",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "215198",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO3PEM",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "3PEM",
+            "desc_concepto": "Préstamo Empresa",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO939A",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "939A",
+            "desc_concepto": "Ajust Vacac Comp. Term.",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO97A1",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "97A1",
+            "desc_concepto": "Ajust Vacac Días No Hábil",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO97D0",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "97D0",
+            "desc_concepto": "Devolución Dto. ESPP",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "22000042",
+            "desc_cuenta": "Descuento ESPP",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9ANP",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9ANP",
+            "desc_concepto": "Pago Adelanto Automatico",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9ANT",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9ANT",
+            "desc_concepto": "Pago Anticipo Nómina",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "206299",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9BGC",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9BGC",
+            "desc_concepto": "Colmedica",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000020",
+            "desc_cuenta": "Medicina prepaga",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9BGD",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9BGD",
+            "desc_concepto": "Sura",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000020",
+            "desc_cuenta": "Medicina prepaga",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9M40",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9M40",
+            "desc_concepto": "Ajuste M400 retro",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9R34",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9R34",
+            "desc_concepto": "Retención Fuente (RSU-PR)",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000079",
+            "desc_cuenta": "CCSS RSU",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLO9T26",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "9T26",
+            "desc_concepto": "Cuota de Alimentos",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "206185",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOBN02",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "BN02",
+            "desc_concepto": "Seguro de Vida",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000017",
+            "desc_cuenta": "Seguro Obligat. dist",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOBN03",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "BN03",
+            "desc_concepto": "Colmedica",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000020",
+            "desc_cuenta": "Medicina prepaga",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOBN04",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "BN04",
+            "desc_concepto": "Sura",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000020",
+            "desc_cuenta": "Medicina prepaga",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM010",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M010",
+            "desc_concepto": "Sueldo Básico",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM020",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M020",
+            "desc_concepto": "Salario Integral",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM050",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M050",
+            "desc_concepto": "Apoyo de Sostenimiento",
+            "tipo_clasificacion": "Sostenimiento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000045",
+            "desc_cuenta": "Provisión Ob. Social",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM100",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M100",
+            "desc_concepto": "Incap.General Ambulatoria",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM105",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M105",
+            "desc_concepto": "Prórroga Incap Gral Ambul",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM110",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M110",
+            "desc_concepto": "Incap.Gral Hospitalaria",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM120",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M120",
+            "desc_concepto": "Licencia Maternidad",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM130",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M130",
+            "desc_concepto": "Licencia Paternidad",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM140",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M140",
+            "desc_concepto": "Incap.Accidente Trabajo",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM150",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M150",
+            "desc_concepto": "Incap.Enfermedad Profesio",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM155",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M155",
+            "desc_concepto": "Prórroga Inc.Enf.Profesio",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM1A1",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M1A1",
+            "desc_concepto": "Aux.Días inic.incap gral",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM1A2",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M1A2",
+            "desc_concepto": "Aux.Días inic.incap riesg",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM1A3",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M1A3",
+            "desc_concepto": "Auxilio incapacidad",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM1A4",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M1A4",
+            "desc_concepto": "Auxilio prórroga incapaci",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM1L1",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M1L1",
+            "desc_concepto": "Permiso Remunerado",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM1L2",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M1L2",
+            "desc_concepto": "Licencia no remunerada",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM1L3",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M1L3",
+            "desc_concepto": "Licencia con Goce",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM200",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M200",
+            "desc_concepto": "Auxilio  de Trans Legal",
+            "tipo_clasificacion": "Auxilio",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM350",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M350",
+            "desc_concepto": "Compensatorio",
+            "tipo_clasificacion": "Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000000",
+            "desc_cuenta": "Sueldos Directos",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM398",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M398",
+            "desc_concepto": "Vacaciones Comp. en Term.",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM399",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M399",
+            "desc_concepto": "Vacaciones Compensadas",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM400",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M400",
+            "desc_concepto": "Vacaciones Disfrutadas",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM401",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M401",
+            "desc_concepto": "Recálculo Vacaciones Fijo",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM403",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M403",
+            "desc_concepto": "Pago Vacaciones en Dinero",
+            "tipo_clasificacion": "Vacaciones",
+            "tipo_novedad": "Vacaciones",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000002",
+            "desc_cuenta": "Provisión Vacaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM421",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M421",
+            "desc_concepto": "Cesantías Anticipadas",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000018",
+            "desc_cuenta": "Provision Cesantia",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM422",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M422",
+            "desc_concepto": "Intereses Cesantías",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000019",
+            "desc_cuenta": "Provision int Cesant",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM423",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M423",
+            "desc_concepto": "Cesantías Definitivas",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000018",
+            "desc_cuenta": "Provision Cesantia",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM424",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M424",
+            "desc_concepto": "Int.Cesantías Definitivas",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000019",
+            "desc_cuenta": "Provision int Cesant",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM425",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M425",
+            "desc_concepto": "Cesantías definit año ant",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000018",
+            "desc_cuenta": "Provision Cesantia",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM426",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M426",
+            "desc_concepto": "Int.cesant.defin año ante",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000019",
+            "desc_cuenta": "Provision int Cesant",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM427",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M427",
+            "desc_concepto": "Cesantías Antic año anter",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000018",
+            "desc_cuenta": "Provision Cesantia",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM428",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M428",
+            "desc_concepto": "Int.cesantías año anterio",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000019",
+            "desc_cuenta": "Provision int Cesant",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM429",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M429",
+            "desc_concepto": "Consignación Fondo cesant",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "23000018",
+            "desc_cuenta": "Provision Cesantia",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM460",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M460",
+            "desc_concepto": "Prima Legal de Servicio",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "23000000",
+            "desc_cuenta": "Provision SAC",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOM480",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "M480",
+            "desc_concepto": "Indemnización",
+            "tipo_clasificacion": "No Salarial",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "54000015",
+            "desc_cuenta": "Indemnizaciones",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT000",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T000",
+            "desc_concepto": "Descuento Salud",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT001",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T001",
+            "desc_concepto": "Ant. Salud Vacaciones",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT010",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T010",
+            "desc_concepto": "Descuento Pensión",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT011",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T011",
+            "desc_concepto": "Ant. Pensión Vacaciones",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT020",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T020",
+            "desc_concepto": "Descuento Solidaridad",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT030",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T030",
+            "desc_concepto": "Aporte Voluntario",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT032",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T032",
+            "desc_concepto": "Ahorro  Fom. Construcción",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "NA",
+            "desc_cuenta": "",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT050",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T050",
+            "desc_concepto": "Retención en la Fuente",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "207106",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT053",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T053",
+            "desc_concepto": "Retención Primas",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "207106",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT056",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T056",
+            "desc_concepto": "Retención Indemnización",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Devengo",
+            "cuenta_contable": "207106",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    },
+    {
+        "model": "liquidaciones.ConceptoEmpresa",
+        "pk": "GLOT059",
+        "fields": {
+            "empresa": "1",
+            "cod_concepto": "T059",
+            "desc_concepto": "Retención Bono Retiro",
+            "tipo_clasificacion": "Descuento",
+            "tipo_novedad": "na",
+            "tipo_concepto": "Descuento",
+            "cuenta_contable": "207106",
+            "desc_cuenta": "No existe acreedor",
+            "observacion": "sin obs"
+        }
+    }
 ]
